@@ -1,53 +1,60 @@
 body {
   margin: 0;
-  font-family: "Segoe UI", Roboto, sans-serif;
-  background: #f9f9f9;
-  color: #222;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6f9;
+  color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .container {
   text-align: center;
   padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.hero {
+  width: 100%;
   max-width: 500px;
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+  height: auto;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-  width: 100px;
-  height: 100px;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
   margin-bottom: 1rem;
 }
 
 h1 {
-  margin: 0;
   font-size: 2rem;
-  color: #2e7d32;
+  margin-bottom: 0.5rem;
 }
 
 .tagline {
-  font-size: 1rem;
-  margin: 1rem 0;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
   color: #555;
 }
 
 .store-button {
-  text-decoration: none;
-  background: #2e7d32;
+  display: inline-block;
+  background: #1a73e8;
   color: white;
   padding: 0.75rem 1.5rem;
+  font-size: 1rem;
   border-radius: 8px;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 1rem;
-  transition: background 0.3s;
+  text-decoration: none;
+  transition: background 0.3s ease;
 }
 
 .store-button:hover {
-  background: #1b5e20;
+  background: #155ab6;
 }
