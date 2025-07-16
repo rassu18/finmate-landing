@@ -3,28 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="FinMate – Your Personal Finance Tracker"/>
-  <title>FinMate – Your Finance Tracker</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <title>FinMate – Your Smart Expense Tracker</title>
+  <meta name="description" content="Track expenses automatically with SMS-based tracking. Your privacy-first finance tracker.">
   <link rel="stylesheet" href="style.css" />
-  <meta name="twitter:image" content="finmate.png" />
+  <link rel="icon" href="favicon.ico" />
+  <meta property="og:image" content="finmate-hero.png" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+      text-align: center;
+    }
+
+    .hero {
+      padding: 60px 20px 40px;
+    }
+
+    .hero-image {
+      max-width: 90%;
+      width: 600px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: #4B5563;
+      margin-bottom: 30px;
+    }
+
+    .store-button {
+      background-color: #1a73e8;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 8px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .store-button:hover {
+      background-color: #155ab6;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .tagline {
+        font-size: 1rem;
+      }
+      .hero-image {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Hero section -->
-    <div class="hero-section">
-      <img src="finmate.png" alt="FinMate Preview" class="hero-img" />
-    </div>
-
-    <!-- Branding & CTA -->
-    <div class="content">
-      <img src="favicon.ico" alt="FinMate Logo" class="logo" />
-      <h1>FinMate</h1>
-      <p class="tagline">Your personal finance tracker – simple, offline & secure.</p>
-      <a class="store-button" href="https://play.google.com/store/apps/details?id=com.finmate.app" target="_blank">
-        📲 Download on Google Play
-      </a>
-    </div>
-  </div>
+  <section class="hero">
+    <img src="finmate-hero.png" alt="FinMate App Preview" class="hero-image">
+    <h1>FinMate</h1>
+    <p class="tagline">Track expenses automatically – private, offline, and secure.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.finmate.app" target="_blank" class="store-button">
+      📲 Download on Google Play
+    </a>
+  </section>
 </body>
 </html>
