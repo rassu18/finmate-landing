@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FinMate – Your Smart Expense Tracker</title>
   <meta name="description" content="Track expenses automatically with SMS-based tracking. Your privacy-first finance tracker.">
-  <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" />
   <meta property="og:image" content="finmate-hero.png" />
   <style>
@@ -13,7 +12,7 @@
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #f9fafb;
-      color: #333;
+      color: #111827;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -29,9 +28,6 @@
       width: 100vw;
       max-width: 100vw;
       height: auto;
-      border-radius: 0;
-      box-shadow: none;
-      margin-bottom: 0;
       display: block;
     }
 
@@ -40,17 +36,27 @@
       text-align: center;
     }
 
+    .section-label {
+      display: inline-block;
+      background-color: #E0F2FE;
+      color: #0369A1;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+    }
+
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       font-weight: 700;
-      color: #111827;
-      margin-bottom: 12px;
+      margin: 12px 0;
     }
 
     .tagline {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       color: #4B5563;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
     .store-button {
@@ -60,13 +66,20 @@
       font-weight: 600;
       font-size: 1rem;
       padding: 14px 28px;
-      border-radius: 8px;
-      display: inline-block;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       transition: background-color 0.3s ease;
     }
 
     .store-button:hover {
       background-color: #155ab6;
+    }
+
+    .store-button::after {
+      content: '→';
+      font-size: 1.2rem;
     }
 
     footer {
@@ -85,6 +98,10 @@
       .tagline {
         font-size: 1rem;
       }
+      .store-button {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
@@ -93,10 +110,11 @@
     <img src="finmate-hero.png" alt="FinMate App Preview" class="hero-image">
 
     <div class="hero-content">
-      <h1>FinMate</h1>
-      <p class="tagline">Track expenses automatically – private, offline, and secure.</p>
+      <div class="section-label">🚀 Smart Expense Tracking</div>
+      <h1>Meet <span style="color: #10B981;">FinMate</span></h1>
+      <p class="tagline">Your personal finance assistant. Track expenses, insights, and smart summaries — automatically.</p>
       <a href="https://play.google.com/store/apps/details?id=com.finmate.app" target="_blank" class="store-button">
-        📲 Download on Google Play
+        📲 Download App
       </a>
     </div>
   </section>
