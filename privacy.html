@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | SpendSathi</title>
-    <meta name="description" content="SpendSathi Privacy Policy. Learn how our 100% offline app protects your data.">
-    <link rel="icon" type="image/png" href="icon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,7 +12,6 @@
                     colors: {
                         navy: '#0B1120',
                         surface: '#1E293B',
-                        card: '#162032',
                         gold: '#EAB308',
                         goldHover: '#CA8A04'
                     }
@@ -23,70 +20,67 @@
         }
     </script>
 </head>
-<body class="bg-navy text-slate-100 font-sans antialiased selection:bg-gold selection:text-navy min-h-screen flex flex-col justify-between">
+<body class="bg-navy text-slate-300 font-sans antialiased min-h-screen flex flex-col">
 
-    <!-- Top Navigation -->
-    <nav class="max-w-7xl mx-auto w-full px-6 py-5 flex justify-between items-center border-b border-slate-800/80">
-        <a href="index.html" class="flex items-center space-x-3 group">
-            <img src="icon.png" alt="SpendSathi Logo" class="w-10 h-10 rounded-xl shadow-md border border-gold/30 group-hover:scale-105 transition-transform duration-200">
-            <span class="text-2xl font-bold tracking-tight text-white">Spend<span class="text-gold">Sathi</span></span>
-        </a>
-        <a href="index.html" class="text-sm font-semibold text-slate-400 hover:text-gold transition">
-            &larr; Back to Home
-        </a>
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 w-full bg-navy/85 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-navy/50">
+        <div class="max-w-4xl mx-auto w-full px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition">
+                <span class="text-xl font-bold tracking-tight text-white">Spend<span class="text-gold">Sathi</span></span>
+            </a>
+            <a href="index.html" class="text-sm font-medium text-slate-400 hover:text-white transition">
+                &larr; Back to Home
+            </a>
+        </div>
     </nav>
 
-    <!-- Privacy Policy Content -->
-    <main class="max-w-4xl mx-auto w-full px-6 py-16 md:py-24 flex-grow">
-        <div class="space-y-8">
-            <header>
-                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">Privacy Policy</h1>
-                <p class="text-slate-400">Effective Date: October 2026</p>
-            </header>
+    <!-- Content -->
+    <main class="flex-grow max-w-4xl mx-auto px-6 py-16 w-full">
+        <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Privacy Policy</h1>
+        <p class="text-sm text-slate-500 mb-10">Last updated: October 3, 2026</p>
 
-            <section class="space-y-4 text-slate-300 leading-relaxed bg-surface/50 p-8 rounded-3xl border border-slate-800">
-                <h2 class="text-2xl font-bold text-white">1. Core Philosophy: 100% Offline</h2>
-                <p>SpendSathi was built on a single, fundamental premise: <strong>Your financial data belongs to you.</strong> Our application is 100% offline. We do not have servers, we do not require user accounts, and we do not sync your data to the cloud.</p>
-                
-                <h2 class="text-2xl font-bold text-white pt-4">2. SMS Parsing & Local Storage</h2>
-                <p>SpendSathi requires SMS read permissions solely to parse transactional messages (like UPI or bank alerts) and automatically categorize your expenses. </p>
-                <ul class="list-disc pl-6 space-y-2 text-slate-400">
-                    <li><strong>No Data Leaves Your Device:</strong> The SMS parsing happens entirely locally on your smartphone.</li>
-                    <li><strong>Local Database:</strong> All parsed expenses, custom categories, and application settings are stored in an encrypted local database on your device.</li>
-                    <li><strong>No External Transmission:</strong> SpendSathi does not upload, share, sell, or transmit your transaction history or SMS data to us or any third-party services.</li>
+        <div class="space-y-8 text-slate-300 leading-relaxed">
+            <section>
+                <h2 class="text-xl font-bold text-white mb-3">1. Local Financial Processing</h2>
+                <p>SpendSathi is designed to respect your privacy regarding your personal financial data. All SMS messages, UPI alerts, and bank transaction details are parsed and processed locally on your device. We do not collect, store, or transmit your financial data to our servers.</p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-white mb-3">2. Permissions We Request</h2>
+                <ul class="list-disc list-inside space-y-2 mt-2">
+                    <li><strong class="text-white">READ_SMS / RECEIVE_SMS:</strong> This permission is strictly required to read incoming bank and UPI messages to automatically log your expenses. These messages are parsed locally on your phone and are never uploaded to any external server.</li>
+                    <li><strong class="text-white">POST_NOTIFICATIONS:</strong> This permission allows us to send you local alerts, such as daily spending summaries, budget warnings, or categorization reminders. These notifications are generated locally on your device.</li>
+                    <li><strong class="text-white">INTERNET:</strong> This permission is required to serve advertisements and collect basic app analytics (detailed below).</li>
                 </ul>
+            </section>
 
-                <h2 class="text-2xl font-bold text-white pt-4">3. No Trackers or Analytics</h2>
-                <p>We do not include third-party advertising SDKs or behavioral tracking software. Because the app is completely offline, it does not track your usage habits or phone diagnostics.</p>
-
-                <h2 class="text-2xl font-bold text-white pt-4">4. Permissions Required</h2>
-                <p>To function correctly, SpendSathi requests the following permissions:</p>
-                <ul class="list-disc pl-6 space-y-2 text-slate-400">
-                    <li><strong>READ_SMS / RECEIVE_SMS:</strong> Used exclusively to detect bank and UPI transaction messages in real-time to automate your expense tracking.</li>
+            <section>
+                <h2 class="text-xl font-bold text-white mb-3">3. Analytics and Advertising</h2>
+                <p>While your financial data is processed entirely locally, we use third-party services to help maintain, improve, and monetize the app:</p>
+                <ul class="list-disc list-inside space-y-2 mt-2 ml-4">
+                    <li><strong class="text-white">Google Firebase Analytics:</strong> We use Firebase to collect anonymous usage data, device information, and crash reports. This helps us understand how the app is used and fix technical issues.</li>
+                    <li><strong class="text-white">Google AdMob:</strong> We use AdMob to display advertisements within the app. AdMob may collect and use device identifiers, IP addresses, and generalized location data to serve personalized ads.</li>
                 </ul>
+                <p class="mt-4">These third-party providers have their own privacy policies addressing how they use such information. We recommend reviewing the Google Privacy Policy for more details.</p>
+            </section>
 
-                <h2 class="text-2xl font-bold text-white pt-4">5. Contact Us</h2>
-                <p>If you have any questions or concerns about this Privacy Policy or the way SpendSathi operates, please contact the developer via the feedback form on our homepage or directly at: <a href="mailto:mohi.varma18@gmail.com" class="text-gold hover:underline">mohi.varma18@gmail.com</a>.</p>
+            <section>
+                <h2 class="text-xl font-bold text-white mb-3">4. Security</h2>
+                <p>Because your transaction data is stored locally on your device, the security of that data relies on your device's security measures. We recommend using a screen lock and keeping your device's operating system updated.</p>
+            </section>
+
+            <section>
+                <h2 class="text-xl font-bold text-white mb-3">5. Contact Us</h2>
+                <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:</p>
+                <p class="mt-2 text-gold font-medium">mohi.varma18@gmail.com</p>
             </section>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="max-w-7xl mx-auto w-full px-6 py-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-        <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
-            <p>© 2026 Kumar Nath Mohit Kumar Varma. All rights reserved.</p>
-        </div>
-        
-        <div class="flex items-center space-x-6 text-slate-400">
-            <a href="https://x.com/spendsathi" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition flex items-center space-x-1.5">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                <span>Twitter / X</span>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61578214424919" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition flex items-center space-x-1.5">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                <span>Facebook</span>
-            </a>
-        </div>
+    <footer class="border-t border-slate-800 py-8 text-center text-sm text-slate-500 mt-12">
+        <p>© 2026 Kumar Nath Mohit Kumar Varma. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
