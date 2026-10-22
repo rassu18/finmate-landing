@@ -1,0 +1,59 @@
+---
+layout: default
+title: SpendSathi Blog — Personal Finance Tips
+description: Practical personal finance tips, budgeting strategies, and money-saving insights for Indians.
+---
+
+<!-- Blog Hero -->
+<section class="w-full border-b border-slate-800 bg-gradient-to-b from-surface/30 to-navy">
+    <div class="max-w-5xl mx-auto px-6 py-16 text-center">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-surface border border-gold/30 text-gold text-xs font-semibold uppercase tracking-wider shadow-sm mb-6">
+            <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+            <span>Personal Finance Insights</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">SpendSathi Blog</h1>
+        <p class="text-lg text-slate-400 max-w-xl mx-auto">Practical personal finance tips for real life.</p>
+    </div>
+</section>
+
+<!-- Post Listing -->
+<section class="max-w-5xl mx-auto px-6 py-16">
+    {% if site.posts.size > 0 %}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {% for post in site.posts %}
+        <article class="bg-card border border-slate-800 rounded-2xl overflow-hidden hover:border-gold/40 transition group">
+            {% if post.image %}
+            <a href="{{ post.url }}">
+                <div class="w-full h-48 overflow-hidden">
+                    <img src="{{ post.image }}" alt="{{ post.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+            </a>
+            {% endif %}
+            <div class="p-6">
+                <div class="flex items-center space-x-3 text-xs text-slate-500 mb-3">
+                    <span>{{ post.date | date: "%B %-d, %Y" }}</span>
+                    {% if post.author %}
+                    <span>•</span>
+                    <span>{{ post.author }}</span>
+                    {% endif %}
+                </div>
+                <h2 class="text-xl font-bold text-white mb-3 leading-snug group-hover:text-gold transition">
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </h2>
+                <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                    {{ post.excerpt | strip_html | truncate: 150 }}
+                </p>
+                <a href="{{ post.url }}" class="inline-flex items-center space-x-1 text-gold text-sm font-semibold hover:text-yellow-400 transition">
+                    <span>Read more</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-24">
+        <p class="text-slate-400 text-lg">No posts yet. Check back soon!</p>
+    </div>
+    {% endif %}
+</section>

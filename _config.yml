@@ -1,0 +1,17 @@
+title: SpendSathi Blog
+description: Personal finance insights and tips for smart Indians.
+baseurl: ""
+url: "https://spendsathi.com"
+permalink: /blog/:year/:month/:day/:title/
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude non-Jekyll files
+exclude:
+  - "*.bat"
+  - "*.txt"
+  - node_modules/
