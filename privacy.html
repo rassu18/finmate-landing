@@ -11,75 +11,80 @@
             theme: {
                 extend: {
                     colors: {
-                        navy: '#0B1120',
-                        surface: '#1E293B',
-                        gold: '#EAB308',
-                        goldHover: '#CA8A04'
+                        brand: '#16A34A',
+                        brandHover: '#15803D'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
                     }
                 }
             }
         }
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-navy text-slate-300 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 w-full bg-navy/85 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-navy/50">
+    <nav class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
         <div class="max-w-4xl mx-auto w-full px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition">
-                <span class="text-xl font-bold tracking-tight text-white">Spend<span class="text-gold">Sathi</span></span>
+            <a href="index.html" class="flex items-center space-x-2.5 group">
+                <img src="icon.png" alt="SpendSathi Logo" class="w-8 h-8 rounded-lg border border-slate-200 group-hover:scale-105 transition-transform duration-200">
+                <span class="text-xl font-bold tracking-tight text-slate-900">Spend<span class="text-brand">Sathi</span></span>
             </a>
-            <a href="index.html" class="text-sm font-medium text-slate-400 hover:text-white transition">
-                &larr; Back to Home
+            <a href="index.html" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition flex items-center space-x-1">
+                <span>&larr; Back to Home</span>
             </a>
         </div>
     </nav>
 
     <!-- Content -->
     <main class="flex-grow max-w-4xl mx-auto px-6 py-16 w-full">
-        <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Privacy Policy</h1>
+        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-2 tracking-tight">Privacy Policy</h1>
         <p class="text-sm text-slate-500 mb-10">Last updated: October 3, 2026</p>
 
-        <div class="space-y-8 text-slate-300 leading-relaxed">
-            <section>
-                <h2 class="text-xl font-bold text-white mb-3">1. Local Financial Processing</h2>
+        <div class="space-y-8 text-slate-700 leading-relaxed">
+            <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-3">1. Local Financial Processing</h2>
                 <p>SpendSathi is designed to respect your privacy regarding your personal financial data. All SMS messages, UPI alerts, and bank transaction details are parsed and processed locally on your device. We do not collect, store, or transmit your financial data to our servers.</p>
             </section>
 
-            <section>
-                <h2 class="text-xl font-bold text-white mb-3">2. Permissions We Request</h2>
+            <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-3">2. Permissions We Request</h2>
                 <ul class="list-disc list-inside space-y-2 mt-2">
-                    <li><strong class="text-white">READ_SMS / RECEIVE_SMS:</strong> This permission is strictly required to read incoming bank and UPI messages to automatically log your expenses. These messages are parsed locally on your phone and are never uploaded to any external server.</li>
-                    <li><strong class="text-white">POST_NOTIFICATIONS:</strong> This permission allows us to send you local alerts, such as daily spending summaries, budget warnings, or categorization reminders. These notifications are generated locally on your device.</li>
-                    <li><strong class="text-white">INTERNET:</strong> This permission is required to serve advertisements and collect basic app analytics (detailed below).</li>
+                    <li><strong class="text-slate-900">READ_SMS / RECEIVE_SMS:</strong> This permission is strictly required to read incoming bank and UPI messages to automatically log your expenses. These messages are parsed locally on your phone and are never uploaded to any external server.</li>
+                    <li><strong class="text-slate-900">POST_NOTIFICATIONS:</strong> This permission allows us to send you local alerts, such as daily spending summaries, budget warnings, or categorization reminders. These notifications are generated locally on your device.</li>
+                    <li><strong class="text-slate-900">INTERNET:</strong> This permission is required to serve advertisements and collect basic app analytics (detailed below).</li>
                 </ul>
             </section>
 
-            <section>
-                <h2 class="text-xl font-bold text-white mb-3">3. Analytics and Advertising</h2>
+            <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-3">3. Analytics and Advertising</h2>
                 <p>While your financial data is processed entirely locally, we use third-party services to help maintain, improve, and monetize the app:</p>
                 <ul class="list-disc list-inside space-y-2 mt-2 ml-4">
-                    <li><strong class="text-white">Google Firebase Analytics:</strong> We use Firebase to collect anonymous usage data, device information, and crash reports. This helps us understand how the app is used and fix technical issues.</li>
-                    <li><strong class="text-white">Google AdMob:</strong> We use AdMob to display advertisements within the app. AdMob may collect and use device identifiers, IP addresses, and generalized location data to serve personalized ads.</li>
+                    <li><strong class="text-slate-900">Google Firebase Analytics:</strong> We use Firebase to collect anonymous usage data, device information, and crash reports. This helps us understand how the app is used and fix technical issues.</li>
+                    <li><strong class="text-slate-900">Google AdMob:</strong> We use AdMob to display advertisements within the app. AdMob may collect and use device identifiers, IP addresses, and generalized location data to serve personalized ads.</li>
                 </ul>
                 <p class="mt-4">These third-party providers have their own privacy policies addressing how they use such information. We recommend reviewing the Google Privacy Policy for more details.</p>
             </section>
 
-            <section>
-                <h2 class="text-xl font-bold text-white mb-3">4. Security</h2>
+            <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-3">4. Security</h2>
                 <p>Because your transaction data is stored locally on your device, the security of that data relies on your device's security measures. We recommend using a screen lock and keeping your device's operating system updated.</p>
             </section>
 
-            <section>
-                <h2 class="text-xl font-bold text-white mb-3">5. Contact Us</h2>
+            <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-3">5. Contact Us</h2>
                 <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:</p>
-                <p class="mt-2 text-gold font-medium">mohi.varma18@gmail.com</p>
+                <p class="mt-2 text-brand font-semibold">mohi.varma18@gmail.com</p>
             </section>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 py-8 text-center text-sm text-slate-500 mt-12">
+    <footer class="w-full bg-slate-100 border-t border-slate-200 py-8 text-center text-sm text-slate-500 mt-12">
         <p>© 2026 K N Mohit Kumar Varma. All rights reserved.</p>
     </footer>
 
