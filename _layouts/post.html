@@ -16,11 +16,20 @@ layout: default
 {% assign read_time = words | divided_by: 200 | plus: 1 %}
 
 <!-- Hero / Header Image -->
+<!-- Hero / Header Image — pt-16 clears the sticky navbar (h ~= 64px) -->
+<div class="pt-16">
 {% if page.image %}
-<div class="w-full h-64 md:h-80 overflow-hidden">
-    <img src="{{ page.image }}" alt="{{ page.title }}" class="w-full h-full object-cover">
+<div class="w-full" style="height: 340px; overflow: hidden; background-color: #0B1120;">
+    <img src="{{ page.image | relative_url }}"
+         alt="{{ page.title }}"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;"
+         onerror="this.style.display='none'">
 </div>
+{% else %}
+<!-- Fallback gradient banner when no image is supplied -->
+<div style="height: 120px; background: linear-gradient(135deg, #1E293B 0%, #0B1120 100%);"></div>
 {% endif %}
+</div>
 
 <!-- Article Container -->
 <article class="max-w-3xl mx-auto px-6 py-12">

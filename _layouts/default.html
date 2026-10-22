@@ -6,18 +6,28 @@
     <title>{{ page.title | default: site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
     <meta property="og:url" content="{{ page.url | prepend: site.url }}">
     <meta property="og:title" content="{{ page.title | default: site.title }}">
-    <meta property="og:description" content="{{ page.description | default: site.description }}">
-    {% if page.image %}<meta property="og:image" content="{{ page.image | prepend: site.url }}">{% endif %}
+    <meta property="og:description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 }}">
+    {% if page.image %}
+    <meta property="og:image" content="{{ page.image | prepend: site.url }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    {% else %}
+    <meta property="og:image" content="{{ site.url }}/social-banner.png">
+    {% endif %}
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{ page.url | prepend: site.url }}">
     <meta name="twitter:title" content="{{ page.title | default: site.title }}">
-    <meta name="twitter:description" content="{{ page.description | default: site.description }}">
+    <meta name="twitter:description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 }}">
     <meta name="twitter:site" content="@spendsathi">
-    {% if page.image %}<meta name="twitter:image" content="{{ page.image | prepend: site.url }}">{% endif %}
+    {% if page.image %}
+    <meta name="twitter:image" content="{{ page.image | prepend: site.url }}">
+    {% else %}
+    <meta name="twitter:image" content="{{ site.url }}/social-banner.png">
+    {% endif %}
     <link rel="icon" type="image/png" href="/icon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -35,7 +45,6 @@
             }
         }
     </script>
-    {% seo %}
 </head>
 <body class="bg-navy text-slate-100 font-sans antialiased selection:bg-gold selection:text-navy min-h-screen flex flex-col">
 
