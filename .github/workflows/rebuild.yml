@@ -1,0 +1,44 @@
+name: Scheduled Pages Rebuild
+
+on:
+  schedule:
+    # Run daily at midnight UTC (05:30 AM IST)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows manual trigger anytime from GitHub Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-rebuild
+  cancel-in-progress: true
+
+jobs:
+  rebuild-pages:
+    name: Trigger GitHub Pages Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Request GitHub Pages Build via REST API
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            try {
+              core.info(`Triggering GitHub Pages build for ${context.repo.owner}/${context.repo.repo}...`);
+              const response = await github.rest.repos.requestPageBuild({
+                owner: context.repo.owner,
+                repo: context.repo.repo
+              });
+              core.info(`GitHub Pages build requested successfully! Status: ${response.status}`);
+              core.info(`Build details: ${JSON.stringify(response.data)}`);
+            } catch (error) {
+              core.warning(`requestPageBuild API notice: ${error.message}`);
+              core.info('Attempting fallback curl request to GitHub Pages builds endpoint...');
+              // If standard octokit call had any permission scope nuance, this logs full diagnostic
+              throw error;
+            }

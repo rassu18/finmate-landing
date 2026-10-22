@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="25%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#334155" opacity="0.45"/>
+    </pattern>
+    <radialGradient id="glow-emerald" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-rose" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F43F5E" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#F43F5E" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur24">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Ambient Glows -->
+  <ellipse cx="300" cy="300" rx="280" ry="240" fill="url(#glow-emerald)" filter="url(#blur24)"/>
+  <ellipse cx="960" cy="315" rx="260" ry="260" fill="url(#glow-rose)" filter="url(#blur24)"/>
+
+  <!-- Right Visual: On-Device Fortress vs Leaky Cloud -->
+  <g transform="translate(740, 100)">
+    <!-- Cloud with warning / breach slash -->
+    <g transform="translate(180, 50)" opacity="0.85">
+      <path d="M 60,70 A 35,35 0 0,1 125,50 A 45,45 0 0,1 190,80 A 30,30 0 0,1 180,130 L 50,130 A 30,30 0 0,1 60,70 Z" fill="#1E293B" stroke="#F43F5E" stroke-width="2.5"/>
+      <!-- Red breach warning symbol -->
+      <circle cx="120" cy="95" r="14" fill="#881337"/>
+      <text x="120" y="101" font-family="'Inter', system-ui, sans-serif" font-size="14" font-weight="900" fill="#FDA4AF" text-anchor="middle">!</text>
+      <!-- Slashed transmission wave -->
+      <line x1="30" y1="140" x2="10" y2="190" stroke="#F43F5E" stroke-width="2" stroke-dasharray="4,4"/>
+      <circle cx="10" cy="195" r="4" fill="#F43F5E"/>
+    </g>
+
+    <!-- Smartphone Shield with On-Device Local Green Lock -->
+    <g transform="translate(60, 130)">
+      <!-- Phone casing -->
+      <rect x="0" y="0" width="165" height="295" rx="28" fill="#0F172A" stroke="#334155" stroke-width="3.5"/>
+      <rect x="8" y="8" width="149" height="279" rx="22" fill="#1E293B"/>
+
+      <!-- Top notch -->
+      <rect x="52" y="16" width="45" height="7" rx="3.5" fill="#0F172A"/>
+
+      <!-- Green Security Shield Icon in Center of Phone -->
+      <g transform="translate(37, 70)">
+        <circle cx="37" cy="45" r="42" fill="#064E3B" stroke="#10B981" stroke-width="2.5"/>
+        <!-- Padlock icon -->
+        <rect x="22" y="38" width="30" height="24" rx="4" fill="#10B981"/>
+        <path d="M 27,38 L 27,27 A 10,10 0 0,1 47,27 L 47,38" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="37" cy="49" r="3" fill="#064E3B"/>
+      </g>
+
+      <!-- Local Device Chip Tag -->
+      <rect x="20" y="180" width="125" height="28" rx="14" fill="#0F172A" stroke="#10B981" stroke-width="1.5"/>
+      <circle cx="32" cy="194" r="4" fill="#10B981"/>
+      <text x="44" y="198" font-family="'Inter', system-ui, sans-serif" font-size="11" font-weight="700" fill="#6EE7B7">100% On-Device</text>
+
+      <rect x="20" y="220" width="125" height="28" rx="14" fill="#0F172A" stroke="#475569" stroke-width="1"/>
+      <text x="82" y="238" font-family="'Inter', system-ui, sans-serif" font-size="11" font-weight="600" fill="#94A3B8" text-anchor="middle">Zero Cloud Upload</text>
+    </g>
+
+    <!-- Local SQLite / Room Database tag -->
+    <g transform="translate(230, 290)">
+      <rect x="0" y="0" width="135" height="36" rx="10" fill="#0F172A" stroke="#10B981" stroke-width="1.5"/>
+      <text x="67" y="23" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="700" fill="#34D399" text-anchor="middle">Local SQLite Only</text>
+    </g>
+  </g>
+
+  <!-- Left Content -->
+  <!-- Category Pill Badge -->
+  <rect x="80" y="115" width="220" height="36" rx="18" fill="#881337" stroke="#F43F5E" stroke-width="1.2" stroke-opacity="0.6"/>
+  <circle cx="102" cy="133" r="5" fill="#FB7185"/>
+  <text x="118" y="138" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="700" fill="#FECDD3" letter-spacing="1.5">DATA PRIVACY</text>
+
+  <!-- Main Headline -->
+  <text x="80" y="210" font-family="'Inter', system-ui, sans-serif" font-size="52" font-weight="800" fill="#FFFFFF" letter-spacing="-1">The Hidden Cost of</text>
+  <text x="80" y="275" font-family="'Inter', system-ui, sans-serif" font-size="52" font-weight="800" fill="#FFFFFF" letter-spacing="-1"><tspan fill="#FB7185">Cloud</tspan> Budgeting Apps</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="340" font-family="'Inter', system-ui, sans-serif" font-size="20" fill="#94A3B8" font-weight="400">Why syncing bank data to remote servers puts you at risk,</text>
+  <text x="80" y="370" font-family="'Inter', system-ui, sans-serif" font-size="20" fill="#94A3B8" font-weight="400">and why on-device local parsing is the future.</text>
+
+  <!-- Divider line -->
+  <line x1="80" y1="415" x2="600" y2="415" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Author Meta -->
+  <g transform="translate(80, 445)">
+    <circle cx="16" cy="16" r="16" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="21" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#FB7185" text-anchor="middle">MV</text>
+    <text x="44" y="21" font-family="'Inter', system-ui, sans-serif" font-size="15" fill="#CBD5E1" font-weight="500">By Mohit Kumar Varma • 6 min read</text>
+  </g>
+
+  <!-- Bottom Brand Signature -->
+  <g transform="translate(80, 560)">
+    <text x="0" y="0" font-family="'Inter', system-ui, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">Spend<tspan fill="#22C55E">Sathi</tspan></text>
+    <text x="125" y="-1" font-family="'Inter', system-ui, sans-serif" font-size="14" fill="#64748B">• Private Local-First Expense Tracking</text>
+  </g>
+</svg>

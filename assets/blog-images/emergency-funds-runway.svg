@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="25%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#334155" opacity="0.45"/>
+    </pattern>
+    <radialGradient id="glow-blue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-emerald" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur24">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Ambient Glows -->
+  <ellipse cx="300" cy="300" rx="280" ry="240" fill="url(#glow-blue)" filter="url(#blur24)"/>
+  <ellipse cx="960" cy="315" rx="260" ry="260" fill="url(#glow-emerald)" filter="url(#blur24)"/>
+
+  <!-- Right Visual: Safety Vault & Financial Runway Ladder -->
+  <g transform="translate(730, 95)">
+    <!-- Outer Shield Container -->
+    <path d="M 210,30 L 370,85 C 370,250 210,380 210,380 C 210,380 50,250 50,85 Z" fill="#0F172A" stroke="#334155" stroke-width="3"/>
+    <path d="M 210,50 L 345,98 C 345,235 210,345 210,345 C 210,345 75,235 75,98 Z" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5" stroke-opacity="0.5"/>
+
+    <!-- Vault Wheel in Shield -->
+    <circle cx="210" cy="180" r="65" fill="#0F172A" stroke="#10B981" stroke-width="4"/>
+    <circle cx="210" cy="180" r="48" fill="#1E293B"/>
+    <!-- Vault spoke ticks -->
+    <line x1="210" y1="120" x2="210" y2="132" stroke="#10B981" stroke-width="3"/>
+    <line x1="210" y1="228" x2="210" y2="240" stroke="#10B981" stroke-width="3"/>
+    <line x1="150" y1="180" x2="162" y2="180" stroke="#10B981" stroke-width="3"/>
+    <line x1="258" y1="180" x2="270" y2="180" stroke="#10B981" stroke-width="3"/>
+    <!-- Center Rupee Vault Lock -->
+    <text x="210" y="193" font-family="Georgia, serif" font-size="36" font-weight="bold" fill="#F8FAFC" text-anchor="middle">₹</text>
+
+    <!-- Runway Month Pill Cards -->
+    <!-- 3 Months Baseline -->
+    <g transform="translate(10, 310)">
+      <rect x="0" y="0" width="115" height="38" rx="10" fill="#0F172A" stroke="#64748B" stroke-width="1.5"/>
+      <text x="57" y="24" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#94A3B8" text-anchor="middle">3 Mo: Survival</text>
+    </g>
+
+    <!-- 6 Months Realistic -->
+    <g transform="translate(150, 390)">
+      <rect x="0" y="0" width="120" height="38" rx="10" fill="#0F172A" stroke="#3B82F6" stroke-width="2"/>
+      <text x="60" y="24" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#60A5FA" text-anchor="middle">6 Mo: Indian Real</text>
+    </g>
+
+    <!-- 12 Months Fortress -->
+    <g transform="translate(300, 310)">
+      <rect x="0" y="0" width="115" height="38" rx="10" fill="#0F172A" stroke="#10B981" stroke-width="1.5"/>
+      <text x="57" y="24" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#34D399" text-anchor="middle">12 Mo: Fortress</text>
+    </g>
+  </g>
+
+  <!-- Left Content -->
+  <!-- Category Pill Badge -->
+  <rect x="80" y="115" width="220" height="36" rx="18" fill="#1E3A8A" stroke="#3B82F6" stroke-width="1.2" stroke-opacity="0.6"/>
+  <circle cx="102" cy="133" r="5" fill="#60A5FA"/>
+  <text x="118" y="138" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="700" fill="#BFDBFE" letter-spacing="1.5">FINANCIAL RESILIENCE</text>
+
+  <!-- Main Headline -->
+  <text x="80" y="210" font-family="'Inter', system-ui, sans-serif" font-size="52" font-weight="800" fill="#FFFFFF" letter-spacing="-1">Emergency Funds</text>
+  <text x="80" y="275" font-family="'Inter', system-ui, sans-serif" font-size="52" font-weight="800" fill="#FFFFFF" letter-spacing="-1">in India: <tspan fill="#60A5FA">Real Runway</tspan></text>
+
+  <!-- Subtitle -->
+  <text x="80" y="340" font-family="'Inter', system-ui, sans-serif" font-size="20" fill="#94A3B8" font-weight="400">Why US 3-month rules collapse against Indian realities,</text>
+  <text x="80" y="370" font-family="'Inter', system-ui, sans-serif" font-size="20" fill="#94A3B8" font-weight="400">and how to calculate your true monthly burn rate.</text>
+
+  <!-- Divider line -->
+  <line x1="80" y1="415" x2="600" y2="415" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Author Meta -->
+  <g transform="translate(80, 445)">
+    <circle cx="16" cy="16" r="16" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="21" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#60A5FA" text-anchor="middle">MV</text>
+    <text x="44" y="21" font-family="'Inter', system-ui, sans-serif" font-size="15" fill="#CBD5E1" font-weight="500">By Mohit Kumar Varma • 7 min read</text>
+  </g>
+
+  <!-- Bottom Brand Signature -->
+  <g transform="translate(80, 560)">
+    <text x="0" y="0" font-family="'Inter', system-ui, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">Spend<tspan fill="#22C55E">Sathi</tspan></text>
+    <text x="125" y="-1" font-family="'Inter', system-ui, sans-serif" font-size="14" fill="#64748B">• Private Local-First Expense Tracking</text>
+  </g>
+</svg>

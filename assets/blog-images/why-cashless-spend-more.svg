@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="25%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#334155" opacity="0.45"/>
+    </pattern>
+    <radialGradient id="glow-purple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-green" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#16A34A" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#16A34A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur24">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Ambient Glows -->
+  <ellipse cx="280" cy="300" rx="280" ry="240" fill="url(#glow-purple)" filter="url(#blur24)"/>
+  <ellipse cx="960" cy="315" rx="260" ry="260" fill="url(#glow-green)" filter="url(#blur24)"/>
+
+  <!-- Right Visual: Smartphone Scan & Frictionless Rupee Decay -->
+  <g transform="translate(760, 110)">
+    <!-- Wireless Pay Waves -->
+    <path d="M 230,120 A 110,110 0 0,1 230,320" fill="none" stroke="#8B5CF6" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+    <path d="M 265,90 A 150,150 0 0,1 265,350" fill="none" stroke="#A78BFA" stroke-width="3" stroke-linecap="round" stroke-dasharray="6,6" opacity="0.6"/>
+    <path d="M 300,60 A 190,190 0 0,1 300,380" fill="none" stroke="#C4B5FD" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+
+    <!-- Phone mockup tilted -->
+    <g transform="rotate(-6 120 200)">
+      <rect x="50" y="50" width="160" height="310" rx="26" fill="#0F172A" stroke="#475569" stroke-width="3.5"/>
+      <rect x="58" y="58" width="144" height="294" rx="20" fill="#1E293B"/>
+
+      <!-- Phone camera pill -->
+      <rect x="105" y="66" width="50" height="8" rx="4" fill="#0F172A"/>
+
+      <!-- QR / UPI screen interface -->
+      <rect x="75" y="95" width="110" height="110" rx="14" fill="#0F172A" stroke="#16A34A" stroke-width="2"/>
+      <circle cx="130" cy="150" r="28" fill="#14532D"/>
+      <path d="M 120,150 L 127,157 L 142,142" fill="none" stroke="#4ADE80" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Instant Payment Amount -->
+      <text x="130" y="240" font-family="'Inter', system-ui, sans-serif" font-size="24" font-weight="800" fill="#F8FAFC" text-anchor="middle">₹ 149.00</text>
+      <text x="130" y="260" font-family="'Inter', system-ui, sans-serif" font-size="11" font-weight="600" fill="#22C55E" text-anchor="middle">Paid in 1.8s • Friction Zero</text>
+
+      <!-- Wave pulse button -->
+      <rect x="78" y="285" width="104" height="32" rx="16" fill="#16A34A"/>
+      <text x="130" y="306" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">TAP TO PAY</text>
+    </g>
+
+    <!-- Floating Dissolving Coins (The missing pain of paying) -->
+    <g transform="translate(230, 240)">
+      <circle cx="40" cy="40" r="32" fill="#CA8A04" stroke="#FDE047" stroke-width="2.5"/>
+      <text x="40" y="49" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#713F12" text-anchor="middle">₹</text>
+      <!-- Particle dissipation dots -->
+      <circle cx="95" cy="20" r="6" fill="#F59E0B" opacity="0.8"/>
+      <circle cx="120" cy="35" r="4" fill="#FBBF24" opacity="0.6"/>
+      <circle cx="105" cy="55" r="5" fill="#FDE68A" opacity="0.5"/>
+      <circle cx="135" cy="15" r="3" fill="#F59E0B" opacity="0.4"/>
+    </g>
+  </g>
+
+  <!-- Left Content -->
+  <!-- Category Pill Badge -->
+  <rect x="80" y="115" width="240" height="36" rx="18" fill="#4C1D95" stroke="#8B5CF6" stroke-width="1.2" stroke-opacity="0.6"/>
+  <circle cx="102" cy="133" r="5" fill="#A78BFA"/>
+  <text x="118" y="138" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="700" fill="#DDD6FE" letter-spacing="1.5">BEHAVIORAL FINANCE</text>
+
+  <!-- Main Headline -->
+  <text x="80" y="210" font-family="'Inter', system-ui, sans-serif" font-size="52" font-weight="800" fill="#FFFFFF" letter-spacing="-1">Why Cashless Tech</text>
+  <text x="80" y="275" font-family="'Inter', system-ui, sans-serif" font-size="52" font-weight="800" fill="#FFFFFF" letter-spacing="-1">Makes You <tspan fill="#A78BFA">Spend More</tspan></text>
+
+  <!-- Subtitle -->
+  <text x="80" y="340" font-family="'Inter', system-ui, sans-serif" font-size="20" fill="#94A3B8" font-weight="400">The neuroscience behind the 'pain of paying' gap,</text>
+  <text x="80" y="370" font-family="'Inter', system-ui, sans-serif" font-size="20" fill="#94A3B8" font-weight="400">and how local review systems restore financial control.</text>
+
+  <!-- Divider line -->
+  <line x1="80" y1="415" x2="600" y2="415" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Author Meta -->
+  <g transform="translate(80, 445)">
+    <circle cx="16" cy="16" r="16" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="21" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#A78BFA" text-anchor="middle">MV</text>
+    <text x="44" y="21" font-family="'Inter', system-ui, sans-serif" font-size="15" fill="#CBD5E1" font-weight="500">By Mohit Kumar Varma • 6 min read</text>
+  </g>
+
+  <!-- Bottom Brand Signature -->
+  <g transform="translate(80, 560)">
+    <text x="0" y="0" font-family="'Inter', system-ui, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">Spend<tspan fill="#22C55E">Sathi</tspan></text>
+    <text x="125" y="-1" font-family="'Inter', system-ui, sans-serif" font-size="14" fill="#64748B">• Private Local-First Expense Tracking</text>
+  </g>
+</svg>
