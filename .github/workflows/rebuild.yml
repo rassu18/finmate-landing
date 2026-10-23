@@ -7,7 +7,7 @@ on:
   workflow_dispatch: # Allows manual trigger anytime from GitHub Actions tab
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -23,22 +23,39 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Request GitHub Pages Build via REST API
+      - name: Trigger GitHub Pages Build
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            try {
-              core.info(`Triggering GitHub Pages build for ${context.repo.owner}/${context.repo.repo}...`);
-              const response = await github.rest.repos.requestPageBuild({
+            core.info(`Triggering GitHub Pages build for ${context.repo.owner}/${context.repo.repo}...`);
+            let buildQueued = false;
+
+            // Attempt 1: Octokit method requestPagesBuild (plural)
+            if (typeof github.rest.repos?.requestPagesBuild === 'function') {
+              try {
+                const response = await github.rest.repos.requestPagesBuild({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo
+                });
+                core.info(`GitHub Pages build requested via requestPagesBuild! Status: ${response.status}`);
+                core.info(`Details: ${JSON.stringify(response.data)}`);
+                buildQueued = true;
+              } catch (err) {
+                core.warning(`requestPagesBuild attempt error: ${err.message}`);
+              }
+            }
+
+            // Attempt 2: Direct REST API call via github.request
+            if (!buildQueued) {
+              core.info('Requesting Pages build via direct REST endpoint (POST /repos/{owner}/{repo}/pages/builds)...');
+              const response = await github.request('POST /repos/{owner}/{repo}/pages/builds', {
                 owner: context.repo.owner,
-                repo: context.repo.repo
+                repo: context.repo.repo,
+                headers: {
+                  'X-GitHub-Api-Version': '2022-11-28'
+                }
               });
               core.info(`GitHub Pages build requested successfully! Status: ${response.status}`);
-              core.info(`Build details: ${JSON.stringify(response.data)}`);
-            } catch (error) {
-              core.warning(`requestPageBuild API notice: ${error.message}`);
-              core.info('Attempting fallback curl request to GitHub Pages builds endpoint...');
-              // If standard octokit call had any permission scope nuance, this logs full diagnostic
-              throw error;
+              core.info(`Details: ${JSON.stringify(response.data)}`);
             }
