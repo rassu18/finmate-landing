@@ -4,6 +4,10 @@ baseurl: ""
 url: "https://spendsathi.com"
 permalink: /blog/:year/:month/:day/:title/
 
+# Timezone & Publishing settings
+timezone: Asia/Kolkata
+future: true
+
 # Build settings
 markdown: kramdown
 plugins:
@@ -15,3 +19,5 @@ exclude:
   - "*.bat"
   - "*.txt"
   - node_modules/
+  - Gemfile
+  - Gemfile.lock

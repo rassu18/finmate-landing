@@ -6,6 +6,7 @@ author: Mohit Kumar Varma
 image: /assets/blog-images/money-leaks-header.svg
 excerpt: "Most of us check our bank balance and think we're doing okay — until we do the math. Here are 3 silent money drains bleeding your wallet dry every month, and how a local-first approach stops them cold."
 tags: [personal finance, budgeting, subscriptions, UPI, SpendSathi]
+published: true
 ---
 
 You open your bank app, see a balance that looks reasonable, and tell yourself you're doing fine. Then the 25th hits. Rent is paid. Groceries happened. You ordered food twice. You booked a cab. You renewed something. And somehow, before the month is even over, you're already calculating how many days until salary credit.

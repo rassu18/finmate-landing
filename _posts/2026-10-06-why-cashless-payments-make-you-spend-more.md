@@ -6,6 +6,7 @@ author: Mohit Kumar Varma
 image: /assets/blog-images/why-cashless-spend-more.svg
 excerpt: "When you hand over a crisp ₹500 note, your brain registers physical loss. When you scan a QR code, you barely register the exchange at all. Here is the behavioral neuroscience behind digital spending, and how to reclaim your financial awareness."
 tags: [behavioral economics, cashless, UPI, psychology of money, SpendSathi]
+published: true
 ---
 
 Think back to the last time you paid for an item using physical banknotes. 

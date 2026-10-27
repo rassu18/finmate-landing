@@ -6,6 +6,7 @@ author: Mohit Kumar Varma
 image: /assets/blog-images/emergency-funds-runway.svg
 excerpt: "Western personal finance rules blindly advocate for '3 to 6 months of expenses.' In the Indian socio-economic reality of tech layoffs, joint families, and private healthcare deductibles, here is how to calculate your true survival runway."
 tags: [emergency fund, personal finance, financial planning, runway, India]
+published: true
 ---
 
 If you ask any personal finance influencer on social media how much cash you should keep in an emergency fund, you will receive the exact same copy-pasted advice: **"Save three to six months of living expenses."**

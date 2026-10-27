@@ -6,6 +6,7 @@ author: Mohit Kumar Varma
 image: /assets/blog-images/privacy-cloud-budgeting.svg
 excerpt: "When an app tracks your net worth, reads your bank alerts, and gives it all to you for 'free,' how is it paying its engineers and cloud bills? Inside the data-broker economy of cloud personal finance apps, and why local-first architecture is the only true defense."
 tags: [privacy, local-first, cybersecurity, fintech, SpendSathi]
+published: true
 ---
 
 There is an old aphorism in the software world that has never been more relevant than it is in modern consumer fintech: **"If you are not paying for the product, you are the product."**

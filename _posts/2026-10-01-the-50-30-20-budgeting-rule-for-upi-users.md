@@ -6,6 +6,7 @@ author: Mohit Kumar Varma
 image: /assets/blog-images/50-30-20-upi-rule.svg
 excerpt: "The legendary 50/30/20 budgeting rule was invented in the era of cash envelopes and physical checks. In an economy where you scan QR codes thirty times a day, here is how to adapt it so your budget doesn't collapse by mid-month."
 tags: [budgeting, UPI, personal finance, 50-30-20 rule, SpendSathi]
+published: true
 ---
 
 Almost every introductory personal finance book written over the past two decades recommends the same foundational blueprint: Elizabeth Warren's celebrated **50/30/20 rule**. 
