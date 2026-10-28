@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="25%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#334155" opacity="0.45"/>
+    </pattern>
+    <radialGradient id="glow-green" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#16A34A" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#16A34A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-gold" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#EAB308" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#EAB308" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-cyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur24">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Ambient Glows -->
+  <ellipse cx="280" cy="310" rx="300" ry="250" fill="url(#glow-green)" filter="url(#blur24)"/>
+  <ellipse cx="960" cy="280" rx="280" ry="260" fill="url(#glow-gold)" filter="url(#blur24)"/>
+  <ellipse cx="850" cy="460" rx="200" ry="180" fill="url(#glow-cyan)" filter="url(#blur24)"/>
+
+  <!-- Right Visual: Zero-Based Flow & Wallet Allocation Graphic -->
+  <g transform="translate(720, 85)">
+    <!-- Outer decorative guide circle -->
+    <circle cx="210" cy="225" r="190" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="5,6" opacity="0.5"/>
+
+    <!-- Central Zero-Balance Core Hub -->
+    <circle cx="210" cy="225" r="110" fill="#0F172A" stroke="#16A34A" stroke-width="2.5"/>
+    <circle cx="210" cy="225" r="90" fill="#1E293B"/>
+
+    <!-- Large Rupee Equals Zero Mathematical Symbol -->
+    <text x="210" y="215" font-family="'Inter', system-ui, sans-serif" font-size="28" font-weight="800" fill="#22C55E" text-anchor="middle">₹ IN - OUT</text>
+    <text x="210" y="258" font-family="'Inter', system-ui, sans-serif" font-size="38" font-weight="900" fill="#FFFFFF" text-anchor="middle">= ₹0</text>
+
+    <!-- Satellite Allocation Nodes -->
+    <!-- Node 1: SIP & Wealth (Top Right) -->
+    <g transform="translate(320, 60)">
+      <rect x="0" y="0" width="130" height="42" rx="21" fill="#0F172A" stroke="#22C55E" stroke-width="1.5"/>
+      <circle cx="20" cy="21" r="6" fill="#22C55E"/>
+      <text x="36" y="26" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#F8FAFC">SIP / Invest</text>
+    </g>
+    <path d="M 285,150 L 320,102" fill="none" stroke="#22C55E" stroke-width="2" stroke-dasharray="3,3" opacity="0.7"/>
+
+    <!-- Node 2: Fixed Bills (Top Left) -->
+    <g transform="translate(0, 75)">
+      <rect x="0" y="0" width="125" height="42" rx="21" fill="#0F172A" stroke="#06B6D4" stroke-width="1.5"/>
+      <circle cx="20" cy="21" r="6" fill="#06B6D4"/>
+      <text x="36" y="26" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#F8FAFC">Fixed Bills</text>
+    </g>
+    <path d="M 135,160 L 115,117" fill="none" stroke="#06B6D4" stroke-width="2" stroke-dasharray="3,3" opacity="0.7"/>
+
+    <!-- Node 3: Daily UPI Spends (Bottom Left) -->
+    <g transform="translate(15, 340)">
+      <rect x="0" y="0" width="135" height="42" rx="21" fill="#0F172A" stroke="#EAB308" stroke-width="1.5"/>
+      <circle cx="20" cy="21" r="6" fill="#EAB308"/>
+      <text x="36" y="26" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#F8FAFC">UPI Expenses</text>
+    </g>
+    <path d="M 140,290 L 125,340" fill="none" stroke="#EAB308" stroke-width="2" stroke-dasharray="3,3" opacity="0.7"/>
+
+    <!-- Node 4: Emergency Buffer (Bottom Right) -->
+    <g transform="translate(305, 330)">
+      <rect x="0" y="0" width="140" height="42" rx="21" fill="#0F172A" stroke="#A855F7" stroke-width="1.5"/>
+      <circle cx="20" cy="21" r="6" fill="#A855F7"/>
+      <text x="36" y="26" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#F8FAFC">Buffer Fund</text>
+    </g>
+    <path d="M 285,290 L 315,330" fill="none" stroke="#A855F7" stroke-width="2" stroke-dasharray="3,3" opacity="0.7"/>
+  </g>
+
+  <!-- Left Content: Editorial Typography -->
+  <!-- Category Pill Badge -->
+  <rect x="80" y="115" width="220" height="36" rx="18" fill="#14532D" stroke="#22C55E" stroke-width="1.2" stroke-opacity="0.6"/>
+  <circle cx="102" cy="133" r="5" fill="#4ADE80"/>
+  <text x="118" y="138" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="700" fill="#BBF7D0" letter-spacing="1.5">BUDGETING GUIDE</text>
+
+  <!-- Main Headline -->
+  <text x="80" y="210" font-family="'Inter', system-ui, sans-serif" font-size="50" font-weight="800" fill="#FFFFFF" letter-spacing="-1">Zero-Based Budgeting</text>
+  <text x="80" y="275" font-family="'Inter', system-ui, sans-serif" font-size="50" font-weight="800" fill="#FFFFFF" letter-spacing="-1">for <tspan fill="#22C55E">for UPI Users</tspan></text>
+
+  <!-- Subtitle -->
+  <text x="80" y="340" font-family="'Inter', system-ui, sans-serif" font-size="20" fill="#94A3B8" font-weight="400">How giving every rupee a job stops the silent scan-and-pay leak,</text>
+  <text x="80" y="370" font-family="'Inter', system-ui, sans-serif" font-size="20" fill="#94A3B8" font-weight="400">and why 100% local tracking is the missing link.</text>
+
+  <!-- Divider line -->
+  <line x1="80" y1="415" x2="600" y2="415" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Author Meta -->
+  <g transform="translate(80, 445)">
+    <circle cx="16" cy="16" r="16" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="21" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#22C55E" text-anchor="middle">MV</text>
+    <text x="44" y="21" font-family="'Inter', system-ui, sans-serif" font-size="15" fill="#CBD5E1" font-weight="500">By Mohit Kumar Varma • 8 min read</text>
+  </g>
+
+  <!-- Bottom Brand Signature -->
+  <g transform="translate(80, 560)">
+    <text x="0" y="0" font-family="'Inter', system-ui, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">Spend<tspan fill="#22C55E">Sathi</tspan></text>
+    <text x="125" y="-1" font-family="'Inter', system-ui, sans-serif" font-size="14" fill="#64748B">• Private Local-First Expense Tracking</text>
+  </g>
+</svg>
