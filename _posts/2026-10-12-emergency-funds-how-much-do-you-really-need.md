@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Emergency Funds in India: How Much Runway Do You Really Need in 2026?"
-date: 2026-10-12
+date: 2026-10-12 10:00:00 +0530
 author: Mohit Kumar Varma
 image: /assets/blog-images/emergency-funds-runway.svg
 excerpt: "Western personal finance rules blindly advocate for '3 to 6 months of expenses.' In the Indian socio-economic reality of tech layoffs, joint families, and private healthcare deductibles, here is how to calculate your true survival runway."

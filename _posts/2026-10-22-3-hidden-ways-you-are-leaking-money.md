@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "3 Hidden Ways You Are Leaking Money Every Month (And How to Stop It)"
-date: 2026-10-22
+date: 2026-10-22 10:00:00 +0530
 author: Mohit Kumar Varma
 image: /assets/blog-images/money-leaks-header.svg
 excerpt: "Most of us check our bank balance and think we're doing okay — until we do the math. Here are 3 silent money drains bleeding your wallet dry every month, and how a local-first approach stops them cold."
