@@ -3,7 +3,7 @@ layout: post
 title: "The Zero-Based Budgeting Guide for Indians: How to Give Every Rupee a Job in the UPI Era"
 date: 2026-10-28 15:30:00 +0530
 author: Mohit Kumar Varma
-image: /assets/blog-images/zero-based-budgeting-upi-india.svg
+image: /assets/blog-images/zero-based-budgeting-upi-india.webp
 excerpt: "When money sits unassigned in your savings account, high-frequency UPI scans slowly bleed it dry. Here is how Zero-Based Budgeting gives every single rupee an intentional mission before the month starts — and how automated local tracking makes it effortless."
 tags: [zero-based budgeting, UPI, personal finance, money management, SpendSathi]
 published: true

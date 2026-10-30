@@ -2,7 +2,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 {% capture page_title %}
-  {% if page.title %}
+  {% if page.url == '/blog/' or page.title contains 'SpendSathi Blog' %}
+    SpendSathi Blog | Personal Finance Tips
+  {% elsif page.layout == 'post' %}
+    {{ page.title }} | SpendSathi
+  {% elsif page.title %}
     {% if page.title contains 'Offline Expense Tracker' or page.title contains 'Budget Manager' %}
       {{ page.title }}
     {% elsif page.title contains 'SpendSathi' %}

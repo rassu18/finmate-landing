@@ -3,7 +3,7 @@ layout: post
 title: "The Hidden Privacy Cost of Cloud Budgeting Apps: Is 'Free' Worth Your Financial Identity?"
 date: 2026-10-18 10:00:00 +0530
 author: Mohit Kumar Varma
-image: /assets/blog-images/privacy-cloud-budgeting.svg
+image: /assets/blog-images/privacy-cloud-budgeting.webp
 excerpt: "When an app tracks your net worth, reads your bank alerts, and gives it all to you for 'free,' how is it paying its engineers and cloud bills? Inside the data-broker economy of cloud personal finance apps, and why local-first architecture is the only true defense."
 tags: [privacy, local-first, cybersecurity, fintech, SpendSathi]
 published: true

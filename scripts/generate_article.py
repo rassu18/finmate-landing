@@ -257,7 +257,7 @@ layout: post
 title: "{data['title']}"
 date: {timestamp_str}
 author: {data['author']}
-image: /assets/blog-images/{data['slug']}.svg
+image: /assets/blog-images/{data['slug']}.webp
 excerpt: "{data['excerpt']}"
 tags: [{tags_formatted}]
 published: true

@@ -62,6 +62,38 @@ layout: default
 {% assign words = content | number_of_words %}
 {% assign read_time = words | divided_by: 200 | plus: 1 %}
 
+<!-- JSON-LD BlogPosting Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ page.url | absolute_url | jsonify }}
+  },
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+  "image": [
+    {% if page.image %}{{ page.image | absolute_url | jsonify }}{% else %}{{ '/social-banner.webp' | absolute_url | jsonify }}{% endif %}
+  ],
+  "author": {
+    "@type": "Person",
+    "name": {{ page.author | default: "SpendSathi Team" | jsonify }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SpendSathi",
+    "url": "{{ site.url }}/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ '/icon.webp' | absolute_url }}"
+    }
+  }
+}
+</script>
+
 <article class="w-full pb-16">
 
   <!-- Article Header -->

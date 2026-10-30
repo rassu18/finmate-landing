@@ -3,7 +3,7 @@ layout: post
 title: "Why Cashless Payments Make You Spend More (And How to Bring the 'Pain of Paying' Back)"
 date: 2026-10-06 10:00:00 +0530
 author: Mohit Kumar Varma
-image: /assets/blog-images/why-cashless-spend-more.svg
+image: /assets/blog-images/why-cashless-spend-more.webp
 excerpt: "When you hand over a crisp ₹500 note, your brain registers physical loss. When you scan a QR code, you barely register the exchange at all. Here is the behavioral neuroscience behind digital spending, and how to reclaim your financial awareness."
 tags: [behavioral economics, cashless, UPI, psychology of money, SpendSathi]
 published: true
