@@ -1,52 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title | default: site.title }}</title>
-    <meta name="description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 }}">
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
-    <meta property="og:url" content="{{ page.url | prepend: site.url }}">
-    <meta property="og:title" content="{{ page.title | default: site.title }}">
-    <meta property="og:description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 }}">
-    {% if page.image %}
-    <meta property="og:image" content="{{ page.image | prepend: site.url }}">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    {% else %}
-    <meta property="og:image" content="{{ site.url }}/social-banner.png">
-    {% endif %}
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="{{ page.url | prepend: site.url }}">
-    <meta name="twitter:title" content="{{ page.title | default: site.title }}">
-    <meta name="twitter:description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 }}">
-    <meta name="twitter:site" content="@spendsathi">
-    {% if page.image %}
-    <meta name="twitter:image" content="{{ page.image | prepend: site.url }}">
-    {% else %}
-    <meta name="twitter:image" content="{{ site.url }}/social-banner.png">
-    {% endif %}
-    <link rel="icon" type="image/png" href="/icon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#16A34A'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    {% include head.html %}
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
@@ -54,7 +9,7 @@
     <nav class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto w-full px-6 py-3 flex justify-between items-center">
             <a href="/" class="flex items-center space-x-2.5 group">
-                <img src="/icon.png" alt="SpendSathi Logo" class="w-9 h-9 rounded-xl border border-slate-200 group-hover:scale-105 transition-transform duration-200">
+                <img src="/icon.webp" alt="SpendSathi Logo" width="36" height="36" class="w-9 h-9 rounded-xl border border-slate-200 group-hover:scale-105 transition-transform duration-200">
                 <span class="text-xl font-bold tracking-tight text-slate-900">Spend<span class="text-brand">Sathi</span></span>
             </a>
             <div class="flex items-center space-x-2">

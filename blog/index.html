@@ -26,9 +26,11 @@ description: Practical personal finance tips, budgeting strategies, and money-sa
                 <!-- Fixed-height image box — prevents alt-text overflow on broken loads -->
                 <div style="width:100%;height:180px;overflow:hidden;background-color:#f1f5f9;display:block;line-height:0;">
                     <img src="{{ post.image | relative_url }}"
-                         alt=""
-                         role="presentation"
-                         style="width:100%;height:100%;object-fit:cover;display:block;font-size:0;color:transparent;"
+                         alt="{{ post.title }}"
+                         width="400"
+                         height="180"
+                         loading="lazy"
+                         style="width:100%;height:100%;object-fit:cover;display:block;"
                          class="group-hover:scale-105 transition-transform duration-300"
                          onerror="this.parentElement.style.display='none'">
                 </div>

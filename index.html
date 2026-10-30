@@ -1,44 +1,12 @@
+---
+layout: null
+title: SpendSathi
+description: A secure offline expense tracker and budget manager with automated local SMS parsing. Your financial data never leaves your device.
+---
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpendSathi | Secure Local Expense Tracker</title>
-    <meta name="description" content="A secure expense tracker with automated local SMS parsing. Your financial data never leaves your device.">
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://spendsathi.com/">
-    <meta property="og:title" content="SpendSathi | Secure Local Expense Tracker">
-    <meta property="og:description" content="A secure expense tracker with automated local SMS parsing. Your financial data never leaves your device.">
-    <meta property="og:image" content="https://spendsathi.com/social-banner.png">
-
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://spendsathi.com/">
-    <meta name="twitter:title" content="SpendSathi | Secure Local Expense Tracker">
-    <meta name="twitter:description" content="A secure expense tracker with automated local SMS parsing. Your financial data never leaves your device.">
-    <meta name="twitter:site" content="@spendsathi">
-    <meta name="twitter:image" content="https://spendsathi.com/social-banner.png">
-    <link rel="icon" type="image/png" href="icon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#16A34A',
-                        brandHover: '#15803D'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    {% include head.html %}
     <style>
         @keyframes crossfade1 {
             0%, 28% { opacity: 1; z-index: 10; }
@@ -71,7 +39,7 @@
     <nav class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto w-full px-6 py-3 flex justify-between items-center">
             <a href="/" class="flex items-center space-x-2.5 group">
-                <img src="icon.png" alt="SpendSathi Logo" class="w-9 h-9 rounded-xl border border-slate-200 group-hover:scale-105 transition-transform duration-200">
+                <img src="icon.webp" alt="SpendSathi Logo" width="36" height="36" class="w-9 h-9 rounded-xl border border-slate-200 group-hover:scale-105 transition-transform duration-200">
                 <span class="text-xl font-bold tracking-tight text-slate-900">Spend<span class="text-brand">Sathi</span></span>
             </a>
             <div class="flex items-center space-x-2">
@@ -133,9 +101,9 @@
                     <div class="relative w-[280px] sm:w-[310px] h-[600px] sm:h-[660px] bg-slate-900 rounded-[3rem] p-3 shadow-2xl border-4 border-slate-200 ring-1 ring-slate-900/10">
                         <div class="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-950 rounded-full z-20"></div>
                         <div class="relative w-full h-full rounded-[2.3rem] overflow-hidden bg-slate-100">
-                            <img src="screenshot1.jpg" alt="Daily Calendar Analytics" class="slide-1 absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700">
-                            <img src="screenshot2.jpg" alt="Custom Categories" class="slide-2 absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700">
-                            <img src="screenshot3.jpg" alt="Local Processing & Settings" class="slide-3 absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700">
+                            <img src="screenshot1.webp" alt="Daily Calendar Analytics" width="310" height="660" fetchpriority="high" class="slide-1 absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700">
+                            <img src="screenshot2.webp" alt="Custom Categories" width="310" height="660" loading="lazy" class="slide-2 absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700">
+                            <img src="screenshot3.webp" alt="Local Processing & Settings" width="310" height="660" loading="lazy" class="slide-3 absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700">
                         </div>
                     </div>
                 </div>
@@ -222,10 +190,10 @@
             
             <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center md:justify-end gap-4 sm:gap-6 text-slate-400">
                 <a href="https://programmerneeds.com/tools/spendsathi?utm_source=maker-site&amp;utm_medium=badge&amp;utm_campaign=spendsathi" target="_blank" rel="noopener" class="hover:opacity-90 transition-opacity flex items-center">
-                    <img src="https://programmerneeds.com/api/badge/spendsathi?v=10" alt="Find SpendSathi on ProgrammerNeeds" width="220" height="54" class="h-10 w-auto" />
+                    <img src="https://programmerneeds.com/api/badge/spendsathi?v=10" alt="Find SpendSathi on ProgrammerNeeds" width="220" height="54" loading="lazy" class="h-10 w-auto" />
                 </a>
                 <a href='https://www.saashub.com/spendsathi?utm_source=badge&amp;utm_campaign=badge&amp;utm_content=spendsathi&amp;badge_variant=color&amp;badge_kind=approved' target='_blank' rel="noopener" class="hover:opacity-90 transition-opacity flex items-center">
-                    <img src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1" alt="SpendSathi badge" style="max-width: 150px;" class="h-10 w-auto" />
+                    <img src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1" alt="SpendSathi badge" width="150" height="38" loading="lazy" style="max-width: 150px;" class="h-10 w-auto" />
                 </a>
                 <div class="flex items-center space-x-5">
                     <a href="https://x.com/spendsathi" target="_blank" rel="noopener noreferrer" class="hover:text-slate-700 transition flex items-center space-x-1.5" aria-label="Twitter">

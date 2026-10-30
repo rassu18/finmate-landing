@@ -1,0 +1,117 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% capture page_title %}
+  {% if page.title %}
+    {% if page.title contains 'Offline Expense Tracker' or page.title contains 'Budget Manager' %}
+      {{ page.title }}
+    {% elsif page.title contains 'SpendSathi' %}
+      {{ page.title }} | Offline Expense Tracker &amp; Budget Manager
+    {% else %}
+      {{ page.title }} | SpendSathi — Offline Expense Tracker &amp; Budget Manager
+    {% endif %}
+  {% else %}
+    SpendSathi | Offline Expense Tracker &amp; Budget Manager
+  {% endif %}
+{% endcapture %}
+<title>{{ page_title | strip }}</title>
+
+<meta name="description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 }}">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{{ page_title | strip }}">
+<meta property="og:description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 }}">
+{% if page.image %}
+<meta property="og:image" content="{{ page.image | absolute_url }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{% else %}
+<meta property="og:image" content="{{ '/social-banner.webp' | absolute_url }}">
+{% endif %}
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ page.url | absolute_url }}">
+<meta name="twitter:title" content="{{ page_title | strip }}">
+<meta name="twitter:description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 }}">
+<meta name="twitter:site" content="@spendsathi">
+{% if page.image %}
+<meta name="twitter:image" content="{{ page.image | absolute_url }}">
+{% else %}
+<meta name="twitter:image" content="{{ '/social-banner.webp' | absolute_url }}">
+{% endif %}
+
+<!-- Favicon & Touch Icons -->
+<link rel="icon" type="image/png" href="/icon.png">
+<link rel="icon" type="image/webp" href="/icon.webp">
+<link rel="apple-touch-icon" href="/icon.webp">
+
+<!-- Tailwind & Fonts -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    brand: '#16A34A',
+                    brandHover: '#15803D'
+                },
+                fontFamily: {
+                    sans: ['Inter', 'system-ui', 'sans-serif']
+                }
+            }
+        }
+    }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- JSON-LD Entity Schema (Organization & SoftwareApplication) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/#organization",
+      "name": "SpendSathi",
+      "url": "{{ site.url }}/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "{{ site.url }}/#logo",
+        "url": "{{ '/icon.webp' | absolute_url }}",
+        "caption": "SpendSathi Logo"
+      },
+      "sameAs": [
+        "https://x.com/spendsathi",
+        "https://www.facebook.com/profile.php?id=61578214424919"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "{{ site.url }}/#software",
+      "name": "SpendSathi",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "description": "Secure offline expense tracker and budget manager with automated local SMS parsing for bank and UPI debits. Your financial data never leaves your device.",
+      "url": "{{ site.url }}/",
+      "image": "{{ '/icon.webp' | absolute_url }}",
+      "author": {
+        "@id": "{{ site.url }}/#organization"
+      },
+      "installUrl": "https://play.google.com/store/apps/details?id=com.finmate.app"
+    }
+  ]
+}
+</script>
