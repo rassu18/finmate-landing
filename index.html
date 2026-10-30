@@ -41,7 +41,7 @@ description: A secure offline expense tracker and budget manager with automated 
     <nav class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm" aria-label="Main Navigation">
         <div class="max-w-7xl mx-auto w-full px-6 py-3 flex justify-between items-center">
             <a href="/" class="flex items-center space-x-2.5 group" aria-label="SpendSathi Home">
-                <img src="icon.webp" alt="SpendSathi Logo" width="36" height="36" class="w-9 h-9 rounded-xl border border-slate-200 group-hover:scale-105 transition-transform duration-200">
+                <img src="icon.webp" alt="SpendSathi Logo" width="36" height="36" class="w-9 h-9 max-w-full h-auto rounded-xl border border-slate-200 group-hover:scale-105 transition-transform duration-200">
                 <span class="text-xl font-bold tracking-tight text-slate-900">Spend<span class="text-brand">Sathi</span></span>
             </a>
             <div class="flex items-center space-x-2">
@@ -100,13 +100,13 @@ description: A secure offline expense tracker and budget manager with automated 
                 </div>
 
                 <!-- Phone Mockup -->
-                <div class="md:col-span-5 flex justify-center z-10">
-                    <div class="relative w-[280px] sm:w-[310px] h-[600px] sm:h-[660px] bg-slate-900 rounded-[3rem] p-3 shadow-2xl border-4 border-slate-200 ring-1 ring-slate-900/10">
+                <div class="md:col-span-5 flex justify-center z-10 w-full">
+                    <div class="relative w-full max-w-[280px] sm:max-w-[310px] h-[600px] sm:h-[660px] bg-slate-900 rounded-[3rem] p-3 shadow-2xl border-4 border-slate-200 ring-1 ring-slate-900/10">
                         <div class="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-950 rounded-full z-20"></div>
                         <div class="relative w-full h-full rounded-[2.3rem] overflow-hidden bg-slate-100">
-                            <img src="screenshot1.webp" alt="Daily Calendar Analytics" width="310" height="660" fetchpriority="high" class="slide-1 absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700">
-                            <img src="screenshot2.webp" alt="Custom Categories" width="310" height="660" loading="lazy" class="slide-2 absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700">
-                            <img src="screenshot3.webp" alt="Local Processing & Settings" width="310" height="660" loading="lazy" class="slide-3 absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700">
+                            <img src="screenshot1.webp" alt="Daily Calendar Analytics" width="310" height="660" fetchpriority="high" class="slide-1 absolute inset-0 w-full max-w-full h-auto h-full object-cover object-top transition-opacity duration-700">
+                            <img src="screenshot2.webp" alt="Custom Categories" width="310" height="660" loading="lazy" class="slide-2 absolute inset-0 w-full max-w-full h-auto h-full object-cover object-top transition-opacity duration-700">
+                            <img src="screenshot3.webp" alt="Local Processing & Settings" width="310" height="660" loading="lazy" class="slide-3 absolute inset-0 w-full max-w-full h-auto h-full object-cover object-top transition-opacity duration-700">
                         </div>
                     </div>
                 </div>
@@ -195,10 +195,10 @@ description: A secure offline expense tracker and budget manager with automated 
             
             <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center md:justify-end gap-4 sm:gap-6 text-slate-400">
                 <a href="https://programmerneeds.com/tools/spendsathi?utm_source=maker-site&amp;utm_medium=badge&amp;utm_campaign=spendsathi" target="_blank" rel="noopener" aria-label="Find SpendSathi on ProgrammerNeeds" class="hover:opacity-90 transition-opacity flex items-center">
-                    <img src="https://programmerneeds.com/api/badge/spendsathi?v=10" alt="Find SpendSathi on ProgrammerNeeds" width="220" height="54" loading="lazy" class="h-10 w-auto" />
+                    <img src="https://programmerneeds.com/api/badge/spendsathi?v=10" alt="Find SpendSathi on ProgrammerNeeds" width="220" height="54" loading="lazy" class="max-w-full h-auto h-10 w-auto" />
                 </a>
                 <a href='https://www.saashub.com/spendsathi?utm_source=badge&amp;utm_campaign=badge&amp;utm_content=spendsathi&amp;badge_variant=color&amp;badge_kind=approved' target='_blank' rel="noopener" aria-label="SpendSathi on SaaSHub" class="hover:opacity-90 transition-opacity flex items-center">
-                    <img src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1" alt="SpendSathi badge" width="150" height="38" loading="lazy" style="max-width: 150px;" class="h-10 w-auto" />
+                    <img src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1" alt="SpendSathi badge" width="150" height="38" loading="lazy" class="max-w-full max-w-[150px] h-auto h-10 w-auto" />
                 </a>
                 <div class="flex items-center space-x-5">
                     <a href="https://x.com/spendsathi" target="_blank" rel="noopener noreferrer" class="hover:text-slate-700 transition flex items-center space-x-1.5" aria-label="Follow SpendSathi on X (Twitter)">

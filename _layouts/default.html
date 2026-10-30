@@ -2,6 +2,12 @@
 <html lang="en" class="scroll-smooth">
 <head>
     {% include head.html %}
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
     <!-- Skip to main content -->
@@ -11,7 +17,7 @@
     <nav class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm" aria-label="Main Navigation">
         <div class="max-w-7xl mx-auto w-full px-6 py-3 flex justify-between items-center">
             <a href="/" class="flex items-center space-x-2.5 group" aria-label="SpendSathi Home">
-                <img src="/icon.webp" alt="SpendSathi Logo" width="36" height="36" class="w-9 h-9 rounded-xl border border-slate-200 group-hover:scale-105 transition-transform duration-200">
+                <img src="/icon.webp" alt="SpendSathi Logo" width="36" height="36" class="w-9 h-9 max-w-full h-auto rounded-xl border border-slate-200 group-hover:scale-105 transition-transform duration-200">
                 <span class="text-xl font-bold tracking-tight text-slate-900">Spend<span class="text-brand">Sathi</span></span>
             </a>
             <div class="flex items-center space-x-2">

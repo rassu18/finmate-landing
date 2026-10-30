@@ -24,14 +24,13 @@ description: Practical personal finance tips, budgeting strategies, and money-sa
             {% if post.image %}
             <a href="{{ post.url | relative_url }}" aria-label="{{ post.title }}">
                 <!-- Fixed-height image box — prevents alt-text overflow on broken loads -->
-                <div style="width:100%;height:180px;overflow:hidden;background-color:#f1f5f9;display:block;line-height:0;">
+                <div class="w-full max-w-full h-[180px] overflow-hidden bg-slate-100 block leading-none">
                     <img src="{{ post.image | relative_url }}"
                          alt="{{ post.title }}"
                          width="400"
                          height="180"
                          loading="lazy"
-                         style="width:100%;height:100%;object-fit:cover;display:block;"
-                         class="group-hover:scale-105 transition-transform duration-300"
+                         class="w-full max-w-full h-auto min-h-full object-cover block group-hover:scale-105 transition-transform duration-300"
                          onerror="this.parentElement.style.display='none'">
                 </div>
             </a>

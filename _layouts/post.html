@@ -97,15 +97,13 @@ layout: default
 
   <!-- Hero Image (below title, full article width) -->
   {% if page.image %}
-  <div class="mb-10 rounded-2xl overflow-hidden border border-slate-200 shadow-sm"
-       style="width:100%;line-height:0;background-color:#f1f5f9;">
+  <div class="mb-10 rounded-2xl overflow-hidden border border-slate-200 shadow-sm w-full max-w-full bg-slate-100 leading-none">
     <img
       src="{{ page.image | relative_url }}"
       alt="{{ page.title }}"
       width="800"
       height="440"
-      class="post-hero-img w-full h-auto block object-cover"
-      style="max-height:440px;object-fit:cover;width:100%;"
+      class="post-hero-img w-full max-w-full h-auto max-h-[440px] block object-cover"
       onerror="this.parentElement.style.display='none'">
   </div>
   {% endif %}
