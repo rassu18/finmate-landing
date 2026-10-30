@@ -34,11 +34,13 @@ description: A secure offline expense tracker and budget manager with automated 
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-slate-900 focus:font-semibold focus:shadow-lg focus:rounded-lg focus:ring-2 focus:ring-green-600 focus:outline-none">Skip to main content</a>
 
     <!-- STICKY Top Navigation -->
-    <nav class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
+    <nav class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm" aria-label="Main Navigation">
         <div class="max-w-7xl mx-auto w-full px-6 py-3 flex justify-between items-center">
-            <a href="/" class="flex items-center space-x-2.5 group">
+            <a href="/" class="flex items-center space-x-2.5 group" aria-label="SpendSathi Home">
                 <img src="icon.webp" alt="SpendSathi Logo" width="36" height="36" class="w-9 h-9 rounded-xl border border-slate-200 group-hover:scale-105 transition-transform duration-200">
                 <span class="text-xl font-bold tracking-tight text-slate-900">Spend<span class="text-brand">Sathi</span></span>
             </a>
@@ -56,7 +58,7 @@ description: A secure offline expense tracker and budget manager with automated 
     </nav>
 
     <!-- Main Content Wrapper -->
-    <main class="flex-grow">
+    <main id="main-content" class="flex-grow">
         <!-- Hero Section with Background Pattern -->
         <section class="relative w-full border-b border-slate-200 bg-white overflow-hidden">
             <div class="absolute inset-0 hero-pattern opacity-60 pointer-events-none"></div>
@@ -73,7 +75,7 @@ description: A secure offline expense tracker and budget manager with automated 
                         Your financial data belongs to <span class="text-brand">you</span>, not our servers.
                     </h1>
                     
-                    <p class="text-lg text-slate-600 max-w-xl mx-auto md:mx-0 leading-relaxed">
+                    <p class="lead-paragraph text-lg text-slate-600 max-w-xl mx-auto md:mx-0 leading-relaxed">
                         SpendSathi automatically parses UPI and bank SMS alerts entirely on your device. Gain instant insights into your daily spending without syncing your private financial data to the cloud.
                     </p>
 
@@ -147,26 +149,26 @@ description: A secure offline expense tracker and budget manager with automated 
                     <p class="text-slate-600 mt-2">Send us a message and we'll get back to you.</p>
                 </div>
                 
-                <form action="https://formsubmit.co/mohi.varma18@gmail.com" method="POST" class="space-y-4 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-                    <input type="hidden" name="_subject" value="New SpendSathi Website Submission!">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
+                <form action="https://formsubmit.co/mohi.varma18@gmail.com" method="POST" id="contact-form" name="contact-form" class="space-y-4 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                    <input type="hidden" id="form-subject" name="_subject" value="New SpendSathi Website Submission!">
+                    <input type="hidden" id="form-template" name="_template" value="table">
+                    <input type="hidden" id="form-captcha" name="_captcha" value="false">
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Your Name</label>
-                            <input type="text" name="name" id="name" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition placeholder-slate-400" placeholder="John Doe">
+                            <input type="text" name="name" id="name" autocomplete="name" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition placeholder-slate-400" placeholder="John Doe">
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
-                            <input type="email" name="email" id="email" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition placeholder-slate-400" placeholder="john@example.com">
+                            <input type="email" name="email" id="email" autocomplete="email" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition placeholder-slate-400" placeholder="john@example.com">
                         </div>
                     </div>
                     <div>
                         <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Message</label>
                         <textarea name="message" id="message" rows="4" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-slate-900 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition resize-none placeholder-slate-400" placeholder="What's on your mind?"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-lg transition transform hover:-translate-y-0.5 mt-2">
+                    <button type="submit" id="submit-button" name="submit-button" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-lg transition transform hover:-translate-y-0.5 mt-2">
                         Send Message
                     </button>
                 </form>
@@ -192,17 +194,17 @@ description: A secure offline expense tracker and budget manager with automated 
             </div>
             
             <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center md:justify-end gap-4 sm:gap-6 text-slate-400">
-                <a href="https://programmerneeds.com/tools/spendsathi?utm_source=maker-site&amp;utm_medium=badge&amp;utm_campaign=spendsathi" target="_blank" rel="noopener" class="hover:opacity-90 transition-opacity flex items-center">
+                <a href="https://programmerneeds.com/tools/spendsathi?utm_source=maker-site&amp;utm_medium=badge&amp;utm_campaign=spendsathi" target="_blank" rel="noopener" aria-label="Find SpendSathi on ProgrammerNeeds" class="hover:opacity-90 transition-opacity flex items-center">
                     <img src="https://programmerneeds.com/api/badge/spendsathi?v=10" alt="Find SpendSathi on ProgrammerNeeds" width="220" height="54" loading="lazy" class="h-10 w-auto" />
                 </a>
-                <a href='https://www.saashub.com/spendsathi?utm_source=badge&amp;utm_campaign=badge&amp;utm_content=spendsathi&amp;badge_variant=color&amp;badge_kind=approved' target='_blank' rel="noopener" class="hover:opacity-90 transition-opacity flex items-center">
+                <a href='https://www.saashub.com/spendsathi?utm_source=badge&amp;utm_campaign=badge&amp;utm_content=spendsathi&amp;badge_variant=color&amp;badge_kind=approved' target='_blank' rel="noopener" aria-label="SpendSathi on SaaSHub" class="hover:opacity-90 transition-opacity flex items-center">
                     <img src="https://cdn-b.saashub.com/img/badges/approved-color.png?v=1" alt="SpendSathi badge" width="150" height="38" loading="lazy" style="max-width: 150px;" class="h-10 w-auto" />
                 </a>
                 <div class="flex items-center space-x-5">
-                    <a href="https://x.com/spendsathi" target="_blank" rel="noopener noreferrer" class="hover:text-slate-700 transition flex items-center space-x-1.5" aria-label="Twitter">
+                    <a href="https://x.com/spendsathi" target="_blank" rel="noopener noreferrer" class="hover:text-slate-700 transition flex items-center space-x-1.5" aria-label="Follow SpendSathi on X (Twitter)">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     </a>
-                    <a href="https://www.facebook.com/profile.php?id=61578214424919" target="_blank" rel="noopener noreferrer" class="hover:text-slate-700 transition flex items-center space-x-1.5" aria-label="Facebook">
+                    <a href="https://www.facebook.com/profile.php?id=61578214424919" target="_blank" rel="noopener noreferrer" class="hover:text-slate-700 transition flex items-center space-x-1.5" aria-label="Visit SpendSathi on Facebook">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                     </a>
                 </div>

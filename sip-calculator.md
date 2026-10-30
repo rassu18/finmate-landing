@@ -29,11 +29,11 @@ permalink: /sip-calculator.html
                     <label for="sip-amount-input" class="text-sm font-semibold text-slate-700">Monthly Investment</label>
                     <div class="relative">
                         <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-medium text-sm">&#8377;</span>
-                        <input type="number" id="sip-amount-input" value="5000" min="500" max="500000" step="500"
+                        <input type="number" id="sip-amount-input" name="sip-amount-input" value="5000" min="500" max="500000" step="500"
                                class="w-36 pl-7 pr-3 py-1.5 text-right font-bold text-slate-900 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm">
                     </div>
                 </div>
-                <input type="range" id="sip-amount-slider" min="500" max="100000" step="500" value="5000"
+                <input type="range" id="sip-amount-slider" name="sip-amount-slider" aria-label="Monthly Investment Slider" min="500" max="100000" step="500" value="5000"
                        class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-green-600">
                 <div class="flex justify-between text-[11px] text-slate-400 mt-1">
                     <span>&#8377;500</span>
@@ -47,12 +47,12 @@ permalink: /sip-calculator.html
                 <div class="flex justify-between items-center mb-2">
                     <label for="sip-rate-input" class="text-sm font-semibold text-slate-700">Expected Annual Return Rate (p.a)</label>
                     <div class="relative">
-                        <input type="number" id="sip-rate-input" value="12" min="1" max="30" step="0.5"
+                        <input type="number" id="sip-rate-input" name="sip-rate-input" value="12" min="1" max="30" step="0.5"
                                class="w-24 pr-7 pl-3 py-1.5 text-right font-bold text-slate-900 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm">
                         <span class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 font-medium text-sm">%</span>
                     </div>
                 </div>
-                <input type="range" id="sip-rate-slider" min="1" max="30" step="0.5" value="12"
+                <input type="range" id="sip-rate-slider" name="sip-rate-slider" aria-label="Expected Annual Return Rate Slider" min="1" max="30" step="0.5" value="12"
                        class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-green-600">
                 <div class="flex justify-between text-[11px] text-slate-400 mt-1">
                     <span>1%</span>
@@ -66,12 +66,12 @@ permalink: /sip-calculator.html
                 <div class="flex justify-between items-center mb-2">
                     <label for="sip-years-input" class="text-sm font-semibold text-slate-700">Investment Period</label>
                     <div class="relative">
-                        <input type="number" id="sip-years-input" value="10" min="1" max="40" step="1"
+                        <input type="number" id="sip-years-input" name="sip-years-input" value="10" min="1" max="40" step="1"
                                class="w-28 pr-11 pl-3 py-1.5 text-right font-bold text-slate-900 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-sm">
                         <span class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 font-medium text-xs">Yr</span>
                     </div>
                 </div>
-                <input type="range" id="sip-years-slider" min="1" max="35" step="1" value="10"
+                <input type="range" id="sip-years-slider" name="sip-years-slider" aria-label="Investment Period Slider" min="1" max="35" step="1" value="10"
                        class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-green-600">
                 <div class="flex justify-between text-[11px] text-slate-400 mt-1">
                     <span>1 Yr</span>

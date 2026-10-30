@@ -29,11 +29,11 @@ permalink: /emi-calculator.html
                     <label for="emi-amount-input" class="text-sm font-semibold text-slate-700">Loan Amount</label>
                     <div class="relative">
                         <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-medium text-sm">&#8377;</span>
-                        <input type="number" id="emi-amount-input" value="1000000" min="10000" max="50000000" step="10000"
+                        <input type="number" id="emi-amount-input" name="emi-amount-input" value="1000000" min="10000" max="50000000" step="10000"
                                class="w-40 pl-7 pr-3 py-1.5 text-right font-bold text-slate-900 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
                     </div>
                 </div>
-                <input type="range" id="emi-amount-slider" min="50000" max="10000000" step="25000" value="1000000"
+                <input type="range" id="emi-amount-slider" name="emi-amount-slider" aria-label="Loan Amount Slider" min="50000" max="10000000" step="25000" value="1000000"
                        class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
                 <div class="flex justify-between text-[11px] text-slate-400 mt-1">
                     <span>&#8377;50K</span>
@@ -47,12 +47,12 @@ permalink: /emi-calculator.html
                 <div class="flex justify-between items-center mb-2">
                     <label for="emi-rate-input" class="text-sm font-semibold text-slate-700">Interest Rate (p.a)</label>
                     <div class="relative">
-                        <input type="number" id="emi-rate-input" value="8.5" min="1" max="30" step="0.1"
+                        <input type="number" id="emi-rate-input" name="emi-rate-input" value="8.5" min="1" max="30" step="0.1"
                                class="w-24 pr-7 pl-3 py-1.5 text-right font-bold text-slate-900 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
                         <span class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 font-medium text-sm">%</span>
                     </div>
                 </div>
-                <input type="range" id="emi-rate-slider" min="5" max="25" step="0.1" value="8.5"
+                <input type="range" id="emi-rate-slider" name="emi-rate-slider" aria-label="Interest Rate Slider" min="5" max="25" step="0.1" value="8.5"
                        class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
                 <div class="flex justify-between text-[11px] text-slate-400 mt-1">
                     <span>5%</span>
@@ -66,12 +66,12 @@ permalink: /emi-calculator.html
                 <div class="flex justify-between items-center mb-2">
                     <label for="emi-tenure-input" class="text-sm font-semibold text-slate-700">Loan Tenure</label>
                     <div class="relative">
-                        <input type="number" id="emi-tenure-input" value="5" min="1" max="30" step="1"
+                        <input type="number" id="emi-tenure-input" name="emi-tenure-input" value="5" min="1" max="30" step="1"
                                class="w-28 pr-11 pl-3 py-1.5 text-right font-bold text-slate-900 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
                         <span class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 font-medium text-xs">Yrs</span>
                     </div>
                 </div>
-                <input type="range" id="emi-tenure-slider" min="1" max="30" step="1" value="5"
+                <input type="range" id="emi-tenure-slider" name="emi-tenure-slider" aria-label="Loan Tenure Slider" min="1" max="30" step="1" value="5"
                        class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
                 <div class="flex justify-between text-[11px] text-slate-400 mt-1">
                     <span>1 Year</span>
