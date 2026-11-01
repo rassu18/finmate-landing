@@ -1,0 +1,76 @@
+<!-- STICKY Top Navigation -->
+<nav class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm" aria-label="Main Navigation">
+    <div class="max-w-7xl mx-auto flex justify-between items-center w-full px-4 sm:px-6 py-3">
+        <!-- Logo -->
+        <a href="/" class="flex items-center space-x-2.5 group" aria-label="SpendSathi Home">
+            <img src="/icon.webp" alt="SpendSathi Logo" width="36" height="36" class="w-9 h-9 max-w-full h-auto rounded-xl border border-slate-200 group-hover:scale-105 transition-transform duration-200">
+            <span class="text-xl font-bold tracking-tight text-slate-900">Spend<span class="text-brand">Sathi</span></span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex md:items-center md:gap-6">
+            <a href="/calculators.html" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition px-3 py-2 rounded-lg hover:bg-slate-100">Calculators</a>
+            <a href="/blog/" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition px-3 py-2 rounded-lg hover:bg-slate-100">Blog</a>
+            <a href="https://play.google.com/store/apps/details?id=com.finmate.app"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="inline-flex items-center space-x-2 text-sm font-semibold bg-slate-900 text-white px-4 py-2 rounded-full hover:bg-slate-800 transition shadow-sm">
+                <span>Get on Google Play</span>
+            </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button"
+                id="mobile-menu-btn"
+                class="block md:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600 transition"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+                aria-label="Toggle navigation menu">
+            <svg id="menu-icon-open" class="w-6 h-6 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-4 space-y-2">
+        <a href="/calculators.html" class="block text-base font-medium text-slate-700 hover:text-green-700 hover:bg-slate-50 px-3 py-2 rounded-lg transition">Calculators</a>
+        <a href="/blog/" class="block text-base font-medium text-slate-700 hover:text-green-700 hover:bg-slate-50 px-3 py-2 rounded-lg transition">Blog</a>
+        <div class="pt-2">
+            <a href="https://play.google.com/store/apps/details?id=com.finmate.app"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="flex items-center justify-center space-x-2 w-full text-center text-sm font-semibold bg-slate-900 text-white px-4 py-2.5 rounded-xl hover:bg-slate-800 transition shadow-sm">
+                <span>Get on Google Play</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<script>
+(function() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+    if (btn && menu) {
+        btn.addEventListener('click', function() {
+            const isOpen = !menu.classList.contains('hidden');
+            if (isOpen) {
+                menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+                if (iconOpen) iconOpen.classList.remove('hidden');
+                if (iconClose) iconClose.classList.add('hidden');
+            } else {
+                menu.classList.remove('hidden');
+                btn.setAttribute('aria-expanded', 'true');
+                if (iconOpen) iconOpen.classList.add('hidden');
+                if (iconClose) iconClose.classList.remove('hidden');
+            }
+        });
+    }
+})();
+</script>
