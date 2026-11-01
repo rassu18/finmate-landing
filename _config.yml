@@ -14,10 +14,16 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# Include static & SEO files
+include:
+  - robots.txt
+  - app-ads.txt
+  - sitemap.xml
+  - sitemap_index.xml
+
 # Exclude non-Jekyll files
 exclude:
   - "*.bat"
-  - "*.txt"
   - node_modules/
   - Gemfile
   - Gemfile.lock

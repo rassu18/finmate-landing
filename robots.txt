@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://spendsathi.com/sitemap.xml
+Sitemap: https://spendsathi.com/sitemap_index.xml
