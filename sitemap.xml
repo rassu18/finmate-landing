@@ -28,6 +28,22 @@ permalink: /sitemap.xml
     <priority>0.9</priority>
   </url>
 
+  <!-- Step-Up SIP Calculator -->
+  <url>
+    <loc>{{ site.url }}/step-up-sip-calculator.html</loc>
+    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 50-30-20 Budget Planner -->
+  <url>
+    <loc>{{ site.url }}/budget-planner-calculator.html</loc>
+    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- EMI Calculator -->
   <url>
     <loc>{{ site.url }}/emi-calculator.html</loc>

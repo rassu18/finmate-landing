@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Free Financial Calculators — SpendSathi
-description: Free, private financial calculators for Indians. Calculate mutual fund SIP returns and loan EMIs instantly with zero data collection.
+description: Free, private financial calculators for Indians. Calculate mutual fund SIP returns, step-up SIP wealth, 50-30-20 budget planning, and loan EMIs with zero data collection.
 permalink: /calculators.html
 ---
 
@@ -40,17 +40,63 @@ permalink: /calculators.html
         </div>
     </a>
 
+    <!-- Step-Up SIP Calculator Card -->
+    <a href="/step-up-sip-calculator.html" class="group bg-white border border-slate-200 hover:border-emerald-500 rounded-2xl p-7 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between">
+        <div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 17l6-6 4 4 8-8"></path>
+                </svg>
+            </div>
+            <div class="flex items-center space-x-2 mb-2">
+                <h2 class="text-xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">Step-Up SIP Calculator</h2>
+                <span class="text-xs font-semibold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full border border-emerald-200">Top-Up SIP</span>
+            </div>
+            <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                Calculate wealth compounding when you increase your monthly mutual fund SIP annually. Compare returns against flat SIP with yearly growth schedule.
+            </p>
+        </div>
+        <div class="inline-flex items-center text-sm font-semibold text-emerald-700 group-hover:text-emerald-800">
+            <span>Calculate Step-Up SIP</span>
+            <span class="ml-1.5 group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+    </a>
+
+    <!-- 50-30-20 Budget Planner Card -->
+    <a href="/budget-planner-calculator.html" class="group bg-white border border-slate-200 hover:border-blue-500 rounded-2xl p-7 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between">
+        <div>
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                </svg>
+            </div>
+            <div class="flex items-center space-x-2 mb-2">
+                <h2 class="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">50-30-20 Budget Planner</h2>
+                <span class="text-xs font-semibold bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-200">Budgeting</span>
+            </div>
+            <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                Divide your take-home pay into Needs (50%), Wants (30%), and Savings (20%). Tweak spending sliders with real-time deficit alerts and visual balance.
+            </p>
+        </div>
+        <div class="inline-flex items-center text-sm font-semibold text-blue-700 group-hover:text-blue-800">
+            <span>Plan 50-30-20 Budget</span>
+            <span class="ml-1.5 group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </div>
+    </a>
+
     <!-- EMI Calculator Card -->
     <a href="/emi-calculator.html" class="group bg-white border border-slate-200 hover:border-green-500 rounded-2xl p-7 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between">
         <div>
-            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
+            <div class="w-12 h-12 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                 </svg>
             </div>
             <div class="flex items-center space-x-2 mb-2">
                 <h2 class="text-xl font-bold text-slate-900 group-hover:text-green-700 transition-colors">EMI Calculator</h2>
-                <span class="text-xs font-semibold bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full border border-blue-200">Loans</span>
+                <span class="text-xs font-semibold bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full border border-slate-200">Loans</span>
             </div>
             <p class="text-sm text-slate-500 leading-relaxed mb-6">
                 Calculate your Equated Monthly Installment (EMI), total interest payable, and amortization schedule for home loans, car loans, and personal loans.
