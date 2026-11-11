@@ -113,7 +113,7 @@ permalink: /budget-planner-calculator.html
 
     <!-- Dynamic Warning / Surplus Alert Banner -->
     <div id="budget-alert-banner" class="mb-6 p-4 rounded-xl border border-emerald-200 bg-emerald-50 text-emerald-900 text-sm flex items-start gap-3">
-        <svg class="w-5 h-5 flex-shrink-0 text-emerald-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg id="budget-alert-icon" class="w-5 h-5 flex-shrink-0 text-emerald-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
         </svg>
         <div id="budget-alert-text">
@@ -501,6 +501,7 @@ permalink: /budget-planner-calculator.html
     const actualSavingsDiff = document.getElementById('actual-savings-diff');
 
     const alertBanner = document.getElementById('budget-alert-banner');
+    const alertIcon = document.getElementById('budget-alert-icon');
     const alertText = document.getElementById('budget-alert-text');
     const statusPill = document.getElementById('budget-status-pill');
     const totalPctEl = document.getElementById('budget-total-pct');
@@ -515,9 +516,32 @@ permalink: /budget-planner-calculator.html
     const legendSavingsPct = document.getElementById('legend-savings-pct');
     const legendSurplusPct = document.getElementById('legend-surplus-pct');
 
+    let hasCustomTweaks = false;
+
     const rupeeFormatter = new Intl.NumberFormat('en-IN', {
         maximumFractionDigits: 0
     });
+
+    function formatPctLabel(amount, total) {
+        if (total <= 0 || amount <= 0) return '0';
+        const pct = (amount / total) * 100;
+        if (pct < 1) return pct.toFixed(1);
+        return String(Math.round(pct));
+    }
+
+    function setAlertIcon(state) {
+        if (!alertIcon) return;
+        if (state === 'deficit') {
+            alertIcon.setAttribute('class', 'w-5 h-5 flex-shrink-0 text-rose-600 mt-0.5');
+            alertIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>';
+        } else if (state === 'surplus') {
+            alertIcon.setAttribute('class', 'w-5 h-5 flex-shrink-0 text-sky-600 mt-0.5');
+            alertIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>';
+        } else {
+            alertIcon.setAttribute('class', 'w-5 h-5 flex-shrink-0 text-emerald-600 mt-0.5');
+            alertIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>';
+        }
+    }
 
     function updateTargetsAndLimits() {
         const income = Math.max(1000, parseFloat(incomeInput.value) || 0);
@@ -534,8 +558,13 @@ permalink: /budget-planner-calculator.html
         actualWantsTargetTxt.innerHTML = '&#8377;' + rupeeFormatter.format(Math.round(targetWants));
         actualSavingsTargetTxt.innerHTML = '&#8377;' + rupeeFormatter.format(Math.round(targetSavings));
 
-        // Adjust slider maximums based on income
-        const sliderMax = Math.max(income * 1.5, 100000);
+        const currentMaxVal = Math.max(
+            parseFloat(actualNeedsInput.value) || 0,
+            parseFloat(actualWantsInput.value) || 0,
+            parseFloat(actualSavingsInput.value) || 0
+        );
+        // Adjust slider maximums based on income while preserving any existing custom entries
+        const sliderMax = Math.max(income * 1.5, currentMaxVal, 100000);
         actualNeedsSlider.max = sliderMax;
         actualWantsSlider.max = sliderMax;
         actualSavingsSlider.max = sliderMax;
@@ -613,62 +642,69 @@ permalink: /budget-planner-calculator.html
         if (diff < 0) {
             // Deficit / Over budget
             const overAmount = Math.abs(diff);
+            const deficitPctLabel = formatPctLabel(overAmount, income);
             statusPill.textContent = 'Over Budget (' + totalPct + '%)';
             statusPill.className = 'inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-800 self-start sm:self-auto';
 
             alertBanner.className = 'mb-6 p-4 rounded-xl border border-rose-200 bg-rose-50 text-rose-900 text-sm flex items-start gap-3';
-            alertText.innerHTML = `<strong>Over Budget by &#8377;${rupeeFormatter.format(Math.round(overAmount))} (${totalPct - 100}% deficit)!</strong> Your planned spending (&#8377;${rupeeFormatter.format(Math.round(totalAllocated))}) exceeds your monthly salary. Consider reducing discretionary 'Wants' or optimizing utility bills to avoid debt.`;
+            setAlertIcon('deficit');
+            alertText.innerHTML = `<strong>Over Budget by &#8377;${rupeeFormatter.format(Math.round(overAmount))} (${deficitPctLabel}% deficit)!</strong> Your planned spending (&#8377;${rupeeFormatter.format(Math.round(totalAllocated))}) exceeds your monthly salary. Consider reducing discretionary 'Wants' or optimizing utility bills to avoid debt.`;
 
-            // Bar allocation
-            const nW = Math.min(100, Math.round((actualNeeds / totalAllocated) * 100));
-            const wW = Math.min(100 - nW, Math.round((actualWants / totalAllocated) * 100));
+            // Bar allocation scaled proportionally across total allocated
+            const nW = (actualNeeds / totalAllocated) * 100;
+            const wW = (actualWants / totalAllocated) * 100;
             const sW = Math.max(0, 100 - nW - wW);
 
-            barNeeds.style.width = nW + '%';
-            barWants.style.width = wW + '%';
-            barSavings.style.width = sW + '%';
+            barNeeds.style.width = nW.toFixed(2) + '%';
+            barWants.style.width = wW.toFixed(2) + '%';
+            barSavings.style.width = sW.toFixed(2) + '%';
             barSurplus.style.width = '0%';
-            barSurplus.style.backgroundColor = '#f43f5e'; // red
 
             legendNeedsPct.textContent = needsPct + '%';
             legendWantsPct.textContent = wantsPct + '%';
             legendSavingsPct.textContent = savingsPct + '%';
-            legendSurplusPct.textContent = '-' + Math.round((overAmount / income) * 100) + '% (Deficit)';
+            legendSurplusPct.textContent = '-' + deficitPctLabel + '% (Deficit)';
         } else if (diff > 0) {
             // Surplus
-            const surplusPct = Math.round((diff / income) * 100);
-            statusPill.textContent = 'Surplus Available (+' + surplusPct + '%)';
+            const surplusPctLabel = formatPctLabel(diff, income);
+            statusPill.textContent = 'Surplus Available (+' + surplusPctLabel + '%)';
             statusPill.className = 'inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-sky-100 text-sky-800 self-start sm:self-auto';
 
             alertBanner.className = 'mb-6 p-4 rounded-xl border border-sky-200 bg-sky-50 text-sky-900 text-sm flex items-start gap-3';
-            alertText.innerHTML = `<strong>Surplus of &#8377;${rupeeFormatter.format(Math.round(diff))} (${surplusPct}% unallocated)!</strong> You have uncommitted funds remaining. Channel this surplus into mutual fund SIPs, emergency funds, or prepaying loans.`;
+            setAlertIcon('surplus');
+            alertText.innerHTML = `<strong>Surplus of &#8377;${rupeeFormatter.format(Math.round(diff))} (${surplusPctLabel}% unallocated)!</strong> You have uncommitted funds remaining. Channel this surplus into mutual fund SIPs, emergency funds, or prepaying loans.`;
 
-            const nW = Math.round((actualNeeds / income) * 100);
-            const wW = Math.round((actualWants / income) * 100);
-            const sW = Math.round((actualSavings / income) * 100);
+            const nW = (actualNeeds / income) * 100;
+            const wW = (actualWants / income) * 100;
+            const sW = (actualSavings / income) * 100;
             const remW = Math.max(0, 100 - nW - wW - sW);
 
-            barNeeds.style.width = nW + '%';
-            barWants.style.width = wW + '%';
-            barSavings.style.width = sW + '%';
-            barSurplus.style.width = remW + '%';
+            barNeeds.style.width = nW.toFixed(2) + '%';
+            barWants.style.width = wW.toFixed(2) + '%';
+            barSavings.style.width = sW.toFixed(2) + '%';
+            barSurplus.style.width = remW.toFixed(2) + '%';
             barSurplus.style.backgroundColor = '#cbd5e1'; // slate
 
             legendNeedsPct.textContent = needsPct + '%';
             legendWantsPct.textContent = wantsPct + '%';
             legendSavingsPct.textContent = savingsPct + '%';
-            legendSurplusPct.textContent = surplusPct + '%';
+            legendSurplusPct.textContent = surplusPctLabel + '%';
         } else {
             // Exactly Balanced
             statusPill.textContent = '100% Balanced';
             statusPill.className = 'inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 self-start sm:self-auto';
 
             alertBanner.className = 'mb-6 p-4 rounded-xl border border-emerald-200 bg-emerald-50 text-emerald-900 text-sm flex items-start gap-3';
+            setAlertIcon('balanced');
             alertText.innerHTML = `<strong>Budget is perfectly balanced!</strong> Every single Rupee of your take-home salary is intentionally allocated.`;
 
-            barNeeds.style.width = needsPct + '%';
-            barWants.style.width = wantsPct + '%';
-            barSavings.style.width = savingsPct + '%';
+            const nW = (actualNeeds / income) * 100;
+            const wW = (actualWants / income) * 100;
+            const sW = Math.max(0, 100 - nW - wW);
+
+            barNeeds.style.width = nW.toFixed(2) + '%';
+            barWants.style.width = wW.toFixed(2) + '%';
+            barSavings.style.width = sW.toFixed(2) + '%';
             barSurplus.style.width = '0%';
 
             legendNeedsPct.textContent = needsPct + '%';
@@ -679,6 +715,7 @@ permalink: /budget-planner-calculator.html
     }
 
     function resetToDefault() {
+        hasCustomTweaks = false;
         const income = Math.max(1000, parseFloat(incomeInput.value) || 0);
         const n = Math.round(income * 0.50);
         const w = Math.round(income * 0.30);
@@ -693,30 +730,41 @@ permalink: /budget-planner-calculator.html
         actualSavingsInput.value = s;
         actualSavingsSlider.value = s;
 
+        updateTargetsAndLimits();
         calculateBudget();
     }
 
     function sync(slider, input) {
         slider.addEventListener('input', function() {
+            hasCustomTweaks = true;
             input.value = slider.value;
             calculateBudget();
         });
         input.addEventListener('input', function() {
+            hasCustomTweaks = true;
             slider.value = input.value;
+            updateTargetsAndLimits();
             calculateBudget();
         });
+    }
+
+    function onIncomeChange() {
+        updateTargetsAndLimits();
+        if (!hasCustomTweaks) {
+            resetToDefault();
+        } else {
+            calculateBudget();
+        }
     }
 
     // Income sync
     incomeSlider.addEventListener('input', function() {
         incomeInput.value = incomeSlider.value;
-        updateTargetsAndLimits();
-        resetToDefault();
+        onIncomeChange();
     });
     incomeInput.addEventListener('input', function() {
         incomeSlider.value = incomeInput.value;
-        updateTargetsAndLimits();
-        resetToDefault();
+        onIncomeChange();
     });
 
     sync(actualNeedsSlider, actualNeedsInput);

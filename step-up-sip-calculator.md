@@ -161,6 +161,27 @@ permalink: /step-up-sip-calculator.html
                             <span id="stepup-delta-amount" class="font-bold text-emerald-700 text-sm">+&#8377;0</span>
                         </div>
                     </div>
+                    <!-- Visual Comparison Bars: Flat SIP vs Step-Up SIP -->
+                    <div class="space-y-1.5 pt-1">
+                        <div>
+                            <div class="flex justify-between text-[10px] text-slate-500 font-medium mb-0.5">
+                                <span>Flat SIP Baseline</span>
+                                <span id="stepup-flat-bar-label">0%</span>
+                            </div>
+                            <div class="w-full h-2 bg-emerald-100 rounded-full overflow-hidden">
+                                <div id="stepup-flat-comp-bar" class="bg-slate-400 h-full transition-all duration-300" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] text-emerald-800 font-semibold mb-0.5">
+                                <span>With Annual Step-Up</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="w-full h-2 bg-emerald-100 rounded-full overflow-hidden">
+                                <div id="stepup-comp-bar" class="bg-emerald-600 h-full transition-all duration-300" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
                     <p class="text-[11px] text-emerald-800/80 leading-relaxed pt-1">
                         By stepping up your investment by <span id="stepup-summary-pct" class="font-semibold">10%</span> annually, you create an additional <span id="stepup-summary-extra" class="font-semibold">&#8377;0</span> compared to a static flat SIP.
                     </p>
@@ -242,16 +263,16 @@ permalink: /step-up-sip-calculator.html
             </div>
             <div class="p-5 rounded-xl border border-emerald-200 bg-emerald-50/50">
                 <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">10% Step-Up SIP</span>
-                <p class="text-xl font-bold text-emerald-800 mt-1 mb-2">&#8377;97.94 Lakhs</p>
-                <p class="text-xs text-emerald-700">Total Invested: &#8377;38.13 Lakhs | Wealth Gain: &#8377;59.81 Lakhs</p>
+                <p class="text-xl font-bold text-emerald-800 mt-1 mb-2">&#8377;86.84 Lakhs</p>
+                <p class="text-xs text-emerald-700">Total Invested: &#8377;38.13 Lakhs | Wealth Gain: &#8377;48.71 Lakhs</p>
             </div>
         </div>
-        <p>By increasing your monthly deposit by just 10% each year, your final maturity corpus nearly <strong>doubles from &#8377;50 Lakhs to nearly &#8377;1 Crore</strong>! Because the increment is gradual, your day-to-day lifestyle never feels restricted.</p>
+        <p>By increasing your monthly deposit by just 10% each year, your final maturity corpus expands by <strong>&#8377;36.38 Lakhs (+72% extra wealth)</strong>—growing from &#8377;50.46 Lakhs to <strong>&#8377;86.84 Lakhs</strong>! Because the increment is gradual, your day-to-day lifestyle never feels restricted.</p>
     </section>
 
     <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
         <h2 class="text-2xl font-bold text-slate-900 mb-3 tracking-tight">How is Compound Interest Calculated for a Step-Up SIP?</h2>
-        <p>In a standard SIP, every monthly deposit is uniform ($P_0$). In a Step-Up SIP, the monthly deposit in year $y$ (where $y = 0, 1, 2, \dots, Y-1$) increases according to:</p>
+        <p>In a standard SIP, every monthly deposit is uniform (<em>P<sub>0</sub></em>). In a Step-Up SIP, the monthly deposit in year <em>y</em> (where <em>y = 0, 1, 2, &hellip;, Y &minus; 1</em>) increases according to:</p>
         <div class="my-4 p-4 bg-slate-50 border border-slate-200 rounded-xl text-center font-mono text-sm text-slate-800">
             P<sub>y</sub> = P<sub>0</sub> &times; (1 + s)<sup>y</sup>
         </div>
@@ -261,7 +282,7 @@ permalink: /step-up-sip-calculator.html
             <li><strong>s</strong>: Annual step-up percentage (e.g., 0.10 for 10%).</li>
             <li><strong>y</strong>: Completed years of investment (0 for Year 1, 1 for Year 2, etc.).</li>
         </ul>
-        <p class="mt-3">Each instalment deposited at month $k$ (where $k = 1, 2, \dots, 12Y$) compounds at the monthly rate $i = \frac{R}{12 \times 100}$ for the remaining $(12Y - k + 1)$ months. The calculator performs exact month-by-month compounding simulation to reflect real-world mutual fund NAV accrual.</p>
+        <p class="mt-3">Each instalment deposited at month <em>k</em> (where <em>k = 1, 2, &hellip;, 12Y</em>) compounds at the monthly rate <em>i = R &divide; (12 &times; 100)</em> for the remaining <em>(12Y &minus; k + 1)</em> months. The calculator performs exact month-by-month compounding simulation to reflect real-world mutual fund NAV accrual.</p>
     </section>
 
     <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
@@ -441,6 +462,9 @@ permalink: /step-up-sip-calculator.html
     const deltaBadgeEl = document.getElementById('stepup-delta-badge');
     const summaryPctEl = document.getElementById('stepup-summary-pct');
     const summaryExtraEl = document.getElementById('stepup-summary-extra');
+    const flatCompBarEl = document.getElementById('stepup-flat-comp-bar');
+    const flatBarLabelEl = document.getElementById('stepup-flat-bar-label');
+    const stepUpCompBarEl = document.getElementById('stepup-comp-bar');
     const tableBodyEl = document.getElementById('stepup-breakdown-body');
 
     const rupeeFormatter = new Intl.NumberFormat('en-IN', {
@@ -449,9 +473,9 @@ permalink: /step-up-sip-calculator.html
 
     function calculateStepUpSIP() {
         const initialMonthly = Math.max(0, parseFloat(amountInput.value) || 0);
-        const stepUpPct = Math.max(0, parseFloat(pctInput.value) || 0);
-        const annualRate = Math.max(0, parseFloat(rateInput.value) || 0);
-        const years = Math.max(1, parseInt(yearsInput.value) || 1);
+        const stepUpPct = Math.min(100, Math.max(0, parseFloat(pctInput.value) || 0));
+        const annualRate = Math.min(50, Math.max(0, parseFloat(rateInput.value) || 0));
+        const years = Math.min(50, Math.max(1, parseInt(yearsInput.value, 10) || 1));
 
         const monthlyRate = (annualRate / 12) / 100;
         const totalMonths = years * 12;
@@ -525,6 +549,17 @@ permalink: /step-up-sip-calculator.html
         deltaBadgeEl.textContent = '+' + deltaPct + '% Extra';
         summaryPctEl.textContent = stepUpPct + '%';
         summaryExtraEl.innerHTML = '&#8377;' + rupeeFormatter.format(Math.round(wealthDelta));
+
+        if (stepUpBalance > 0) {
+            const flatSharePct = Math.min(100, Math.round((flatBalance / stepUpBalance) * 100));
+            flatCompBarEl.style.width = flatSharePct + '%';
+            flatBarLabelEl.textContent = flatSharePct + '% of Step-Up';
+            stepUpCompBarEl.style.width = '100%';
+        } else {
+            flatCompBarEl.style.width = '0%';
+            flatBarLabelEl.textContent = '0%';
+            stepUpCompBarEl.style.width = '0%';
+        }
 
         // Render Schedule Table
         let tableHtml = '';
