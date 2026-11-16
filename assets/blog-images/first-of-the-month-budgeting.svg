@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="25%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#0B2F29"/>
+      <stop offset="100%" stop-color="#061D1A"/>
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#334155" opacity="0.45"/>
+    </pattern>
+    <radialGradient id="glow-1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur24">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <ellipse cx="260" cy="300" rx="320" ry="260" fill="url(#glow-1)" filter="url(#blur24)"/>
+  <ellipse cx="940" cy="300" rx="300" ry="280" fill="url(#glow-2)" filter="url(#blur24)"/>
+
+  <!-- Left Content: Editorial Typography -->
+  <rect x="80" y="105" width="250" height="38" rx="19" fill="#064E3B" stroke="#10B981" stroke-width="1.4"/>
+  <circle cx="102" cy="124" r="5" fill="#34D399"/>
+  <text x="118" y="129" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="700" fill="#BBF7D0" letter-spacing="1.5">MONTHLY BUDGETING</text>
+
+  <text x="80" y="205" font-family="'Inter', system-ui, sans-serif" font-size="44" font-weight="800" fill="#FFFFFF" letter-spacing="-1">First of the Month</text>
+  <text x="80" y="268" font-family="'Inter', system-ui, sans-serif" font-size="44" font-weight="800" fill="#FFFFFF" letter-spacing="-1"><tspan fill="#10B981">Budgeting Blueprint</tspan></text>
+
+  <text x="80" y="335" font-family="'Inter', system-ui, sans-serif" font-size="19" fill="#94A3B8" font-weight="400">Take control of your salary before UPI scans begin,</text>
+  <text x="80" y="365" font-family="'Inter', system-ui, sans-serif" font-size="19" fill="#94A3B8" font-weight="400">and why 100% private offline tracking guarantees success.</text>
+
+  <line x1="80" y1="415" x2="600" y2="415" stroke="#334155" stroke-width="1.5"/>
+
+  <g transform="translate(80, 445)">
+    <circle cx="18" cy="18" r="18" fill="#0B2F29" stroke="#10B981" stroke-width="1.5"/>
+    <text x="18" y="23" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#34D399" text-anchor="middle">MV</text>
+    <text x="48" y="23" font-family="'Inter', system-ui, sans-serif" font-size="15" fill="#CBD5E1" font-weight="500">By Mohit Varma • 6 min read</text>
+  </g>
+
+  <g transform="translate(80, 560)">
+    <text x="0" y="0" font-family="'Inter', system-ui, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">Spend<tspan fill="#10B981">Sathi</tspan></text>
+    <text x="125" y="-1" font-family="'Inter', system-ui, sans-serif" font-size="14" fill="#64748B">• 100% Offline Expense Tracker</text>
+  </g>
+
+
+  <!-- Right Graphic: 50/30/20 Budget Allocation Ring -->
+  <g transform="translate(730, 95)">
+    <circle cx="210" cy="220" r="195" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,6" opacity="0.6"/>
+    <!-- 50% Arc -->
+    <path d="M 210,35 A 185,185 0 0,1 210,405" fill="none" stroke="#10B981" stroke-width="36" stroke-linecap="round"/>
+    <!-- 30% Arc -->
+    <path d="M 210,405 A 185,185 0 0,1 55,140" fill="none" stroke="#F59E0B" stroke-width="36" stroke-linecap="round"/>
+    <!-- 20% Arc -->
+    <path d="M 55,140 A 185,185 0 0,1 210,35" fill="none" stroke="#06B6D4" stroke-width="36" stroke-linecap="round"/>
+
+    <!-- Central Hub -->
+    <circle cx="210" cy="220" r="110" fill="(11, 54, 47)" stroke="#10B981" stroke-width="2"/>
+    <text x="210" y="215" font-family="'Inter', system-ui, sans-serif" font-size="34" font-weight="900" fill="#FFFFFF" text-anchor="middle">50/30/20</text>
+    <text x="210" y="245" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="700" fill="#34D399" text-anchor="middle">BUDGET RULE</text>
+  </g>
+
+</svg>

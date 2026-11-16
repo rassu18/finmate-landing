@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="25%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#3B0F20"/>
+      <stop offset="100%" stop-color="#240712"/>
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#334155" opacity="0.45"/>
+    </pattern>
+    <radialGradient id="glow-1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E11D48" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#E11D48" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur24">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <ellipse cx="260" cy="300" rx="320" ry="260" fill="url(#glow-1)" filter="url(#blur24)"/>
+  <ellipse cx="940" cy="300" rx="300" ry="280" fill="url(#glow-2)" filter="url(#blur24)"/>
+
+  <!-- Left Content: Editorial Typography -->
+  <rect x="80" y="105" width="250" height="38" rx="19" fill="#4C0519" stroke="#E11D48" stroke-width="1.4"/>
+  <circle cx="102" cy="124" r="5" fill="#FB7185"/>
+  <text x="118" y="129" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="700" fill="#FFE4E6" letter-spacing="1.5">EXPENSE CONTROL</text>
+
+  <text x="80" y="205" font-family="'Inter', system-ui, sans-serif" font-size="44" font-weight="800" fill="#FFFFFF" letter-spacing="-1">Subscription Creep</text>
+  <text x="80" y="268" font-family="'Inter', system-ui, sans-serif" font-size="44" font-weight="800" fill="#FFFFFF" letter-spacing="-1"><tspan fill="#E11D48">The ₹30,000 Silent Leak</tspan></text>
+
+  <text x="80" y="335" font-family="'Inter', system-ui, sans-serif" font-size="19" fill="#94A3B8" font-weight="400">How ₹199 and ₹499 monthly auto-debits quietly compound,</text>
+  <text x="80" y="365" font-family="'Inter', system-ui, sans-serif" font-size="19" fill="#94A3B8" font-weight="400">and how to audit recurring UPI mandates 100% privately.</text>
+
+  <line x1="80" y1="415" x2="600" y2="415" stroke="#334155" stroke-width="1.5"/>
+
+  <g transform="translate(80, 445)">
+    <circle cx="18" cy="18" r="18" fill="#3B0F20" stroke="#E11D48" stroke-width="1.5"/>
+    <text x="18" y="23" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#FB7185" text-anchor="middle">MV</text>
+    <text x="48" y="23" font-family="'Inter', system-ui, sans-serif" font-size="15" fill="#CBD5E1" font-weight="500">By Mohit Varma • 7 min read</text>
+  </g>
+
+  <g transform="translate(80, 560)">
+    <text x="0" y="0" font-family="'Inter', system-ui, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">Spend<tspan fill="#E11D48">Sathi</tspan></text>
+    <text x="125" y="-1" font-family="'Inter', system-ui, sans-serif" font-size="14" fill="#64748B">• 100% Offline Expense Tracker</text>
+  </g>
+
+
+  <!-- Right Graphic: Subscription Radar & Micro-Charge Detector -->
+  <g transform="translate(730, 95)">
+    <!-- Radar concentric circles -->
+    <circle cx="210" cy="210" r="190" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,6" opacity="0.5"/>
+    <circle cx="210" cy="210" r="130" fill="none" stroke="#E11D48" stroke-width="1.5" stroke-opacity="0.3"/>
+    <circle cx="210" cy="210" r="70" fill="none" stroke="#FB7185" stroke-width="1.5" stroke-opacity="0.5"/>
+    <circle cx="210" cy="210" r="10" fill="#E11D48"/>
+
+    <!-- Radar Sweep Cone -->
+    <path d="M 210,210 L 390,140 A 190,190 0 0,0 210,20 Z" fill="#E11D48" fill-opacity="0.12"/>
+
+    <!-- Floating Subscription Cards -->
+    <g transform="translate(30, 70)">
+      <rect x="0" y="0" width="130" height="50" rx="14" fill="(69, 18, 38)" stroke="#E11D48" stroke-width="1.5"/>
+      <text x="18" y="23" font-family="'Inter', system-ui, sans-serif" font-size="11" font-weight="600" fill="#CBD5E1">Video OTT</text>
+      <text x="18" y="40" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="800" fill="#FB7185">₹499 / mo</text>
+    </g>
+
+    <g transform="translate(230, 260)">
+      <rect x="0" y="0" width="140" height="50" rx="14" fill="(69, 18, 38)" stroke="#E11D48" stroke-width="1.5"/>
+      <text x="18" y="23" font-family="'Inter', system-ui, sans-serif" font-size="11" font-weight="600" fill="#CBD5E1">Cloud Storage</text>
+      <text x="18" y="40" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="800" fill="#FB7185">₹199 / mo</text>
+    </g>
+
+    <g transform="translate(40, 270)">
+      <rect x="0" y="0" width="130" height="50" rx="14" fill="(69, 18, 38)" stroke="#E11D48" stroke-width="1.5"/>
+      <text x="18" y="23" font-family="'Inter', system-ui, sans-serif" font-size="11" font-weight="600" fill="#CBD5E1">Delivery Pass</text>
+      <text x="18" y="40" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="800" fill="#FB7185">₹99 / mo</text>
+    </g>
+
+    <!-- Center Cut-Off Badge -->
+    <g transform="translate(130, 360)">
+      <rect x="0" y="0" width="160" height="34" rx="17" fill="#4C0519" stroke="#E11D48" stroke-width="1.5"/>
+      <text x="80" y="22" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="700" fill="#FFE4E6" text-anchor="middle">✂️ Cancel Mandates</text>
+    </g>
+  </g>
+
+</svg>
