@@ -22,6 +22,7 @@ import json
 import glob
 import re
 import math
+import shutil
 import argparse
 from datetime import datetime
 import zoneinfo
@@ -1501,9 +1502,6 @@ def generate_svg_banner(data, output_path):
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#grid)"/>
 
-  <ellipse cx="260" cy="300" rx="320" ry="260" fill="url(#glow-1)" filter="url(#blur24)"/>
-  <ellipse cx="940" cy="300" rx="300" ry="280" fill="url(#glow-2)" filter="url(#blur24)"/>
-
   <!-- Left Content: Editorial Typography -->
   <rect x="80" y="105" width="250" height="38" rx="19" fill="{t['badge_bg']}" stroke="{t['badge_border']}" stroke-width="1.4"/>
   <circle cx="102" cy="124" r="5" fill="{t['accent']}"/>
@@ -1556,17 +1554,6 @@ def generate_webp_banner(data, output_path):
             g = int(g1 + (g2 - g1) * ratio)
             b = int(b1 + (b2 - b1) * ratio)
             draw.line([(i, 0), (i, 630)], fill=(r, g, b))
-
-        # 2. Ambient Glow Overlays
-        overlay = Image.new('RGBA', (1200, 630), (0, 0, 0, 0))
-        draw_ov = ImageDraw.Draw(overlay)
-        # Left ambient glow
-        draw_ov.ellipse([80, 150, 600, 500], fill=(*t['glow1_rgb'], 35))
-        # Right ambient glow
-        draw_ov.ellipse([750, 100, 1150, 520], fill=(*t['glow2_rgb'], 45))
-        img.paste(Image.alpha_composite(Image.new('RGBA', (1200, 630), (0, 0, 0, 0)), overlay).convert('RGB'), (0, 0))
-
-        draw = ImageDraw.Draw(img)
 
         font_large = get_font(42, bold=True)
         font_sub = get_font(20, bold=False)
@@ -1658,7 +1645,7 @@ def generate_webp_banner(data, output_path):
             draw.rounded_rectangle([950, 210, 1100, 255], radius=12, fill=t['bg_start'], outline=(245, 158, 11), width=2)
             draw.text((965, 222), "Cloud: ₹199/mo", fill=(254, 243, 199), font=font_badge)
             draw.rounded_rectangle([860, 430, 1020, 470], radius=14, fill=(76, 5, 25), outline=(225, 29, 72), width=2)
-            draw.text((880, 440), "✂️ Auto-Pay Cut", fill=(255, 228, 230), font=font_badge)
+            draw.text((880, 440), "Auto-Pay Cut", fill=(255, 228, 230), font=font_badge)
 
         elif graphic_type == "vault_shield":
             # Vault door
@@ -1668,7 +1655,7 @@ def generate_webp_banner(data, output_path):
             draw.line([(800, 290), (1080, 290)], fill=(71, 85, 105), width=3)
             draw.line([(940, 150), (940, 430)], fill=(71, 85, 105), width=3)
             draw.rounded_rectangle([850, 435, 1030, 470], radius=14, fill=t['badge_bg_rgb'], outline=t['primary_rgb'])
-            draw.text((865, 444), "🛡️ 6-Month Runway", fill=t['badge_text_rgb'], font=font_badge)
+            draw.text((865, 444), "6-Month Runway", fill=t['badge_text_rgb'], font=font_badge)
 
         elif graphic_type == "gold_scales":
             # Scales
@@ -1682,7 +1669,7 @@ def generate_webp_banner(data, output_path):
             draw.rounded_rectangle([1005, 270, 1075, 310], radius=6, fill=t['primary_rgb'], outline=(255, 255, 255), width=2)
             draw.text((1015, 282), "12% SIP", fill=(255, 255, 255), font=font_badge)
             draw.rounded_rectangle([840, 435, 1040, 470], radius=14, fill=t['badge_bg_rgb'], outline=t['primary_rgb'])
-            draw.text((855, 444), "⚖️ 80/15/5 Ratio", fill=t['accent_rgb'], font=font_badge)
+            draw.text((855, 444), "80/15/5 Ratio", fill=t['accent_rgb'], font=font_badge)
 
         elif graphic_type == "tax_calculator":
             # Tax comparison
@@ -1694,7 +1681,7 @@ def generate_webp_banner(data, output_path):
             draw.rounded_rectangle([950, 160, 1105, 390], radius=16, fill=t['badge_bg_rgb'], outline=t['primary_rgb'], width=3)
             draw.text((975, 180), "New Regime", fill=t['badge_text_rgb'], font=font_badge)
             draw.text((970, 220), "₹75k Std Ded", fill=t['accent_rgb'], font=font_badge)
-            draw.text((975, 310), "DEFAULT 🏆", fill=(255, 255, 255), font=font_graphic)
+            draw.text((975, 310), "DEFAULT", fill=(255, 255, 255), font=font_graphic)
             draw.rounded_rectangle([805, 430, 1075, 470], radius=14, fill=t['bg_start'], outline=t['primary_rgb'])
             draw.text((820, 442), "Breakeven: Deductions > ₹3.75L", fill=t['accent_rgb'], font=font_badge)
 
@@ -1815,6 +1802,9 @@ def regenerate_all_banners(repo_root):
             generate_svg_banner(data, svg_path)
             generate_webp_banner(data, webp_path1)
             generate_webp_banner(data, webp_path2)
+            if slug == "first-of-the-month-budgeting":
+                shutil.copyfile(webp_path1, os.path.join(webp_dir, "november-budget.webp"))
+                shutil.copyfile(webp_path2, os.path.join(svg_dir, "november-budget.webp"))
             count += 1
 
     print(f"Successfully regenerated {count} distinct banners!")

@@ -23,9 +23,6 @@
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#grid)"/>
 
-  <ellipse cx="260" cy="300" rx="320" ry="260" fill="url(#glow-1)" filter="url(#blur24)"/>
-  <ellipse cx="940" cy="300" rx="300" ry="280" fill="url(#glow-2)" filter="url(#blur24)"/>
-
   <!-- Left Content: Editorial Typography -->
   <rect x="80" y="105" width="250" height="38" rx="19" fill="#3B0764" stroke="#A855F7" stroke-width="1.4"/>
   <circle cx="102" cy="124" r="5" fill="#C084FC"/>
