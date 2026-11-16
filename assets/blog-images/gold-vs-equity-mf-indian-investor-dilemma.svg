@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="25%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#291F0E"/>
+      <stop offset="100%" stop-color="#1A1408"/>
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#334155" opacity="0.45"/>
+    </pattern>
+    <radialGradient id="glow-1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D97706" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#D97706" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur24">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Left Content: Editorial Typography -->
+  <rect x="80" y="105" width="250" height="38" rx="19" fill="#451A03" stroke="#D97706" stroke-width="1.4"/>
+  <circle cx="102" cy="124" r="5" fill="#F59E0B"/>
+  <text x="118" y="129" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="700" fill="#FEF3C7" letter-spacing="1.5">INVESTMENT STRATEGY</text>
+
+  <text x="80" y="205" font-family="'Inter', system-ui, sans-serif" font-size="44" font-weight="800" fill="#FFFFFF" letter-spacing="-1">Gold vs Equity SIPs</text>
+  <text x="80" y="268" font-family="'Inter', system-ui, sans-serif" font-size="44" font-weight="800" fill="#FFFFFF" letter-spacing="-1"><tspan fill="#D97706">The Modern Allocation</tspan></text>
+
+  <text x="80" y="335" font-family="'Inter', system-ui, sans-serif" font-size="19" fill="#94A3B8" font-weight="400">Navigating digital gold, Sovereign Gold Bonds, and mutual funds,</text>
+  <text x="80" y="365" font-family="'Inter', system-ui, sans-serif" font-size="19" fill="#94A3B8" font-weight="400">and why balanced local financial tracking builds true independence.</text>
+
+  <line x1="80" y1="415" x2="600" y2="415" stroke="#334155" stroke-width="1.5"/>
+
+  <g transform="translate(80, 445)">
+    <circle cx="18" cy="18" r="18" fill="#291F0E" stroke="#D97706" stroke-width="1.5"/>
+    <text x="18" y="23" font-family="'Inter', system-ui, sans-serif" font-size="13" font-weight="700" fill="#F59E0B" text-anchor="middle">MV</text>
+    <text x="48" y="23" font-family="'Inter', system-ui, sans-serif" font-size="15" fill="#CBD5E1" font-weight="500">By Mohit Varma • 8 min read</text>
+  </g>
+
+  <g transform="translate(80, 560)">
+    <text x="0" y="0" font-family="'Inter', system-ui, sans-serif" font-size="22" font-weight="800" fill="#FFFFFF">Spend<tspan fill="#D97706">Sathi</tspan></text>
+    <text x="125" y="-1" font-family="'Inter', system-ui, sans-serif" font-size="14" fill="#64748B">• 100% Offline Expense Tracker</text>
+  </g>
+
+
+  <!-- Right Graphic: Gold Bullion vs Equity SIP Balance Scales -->
+  <g transform="translate(730, 110)">
+    <rect x="0" y="0" width="380" height="370" rx="24" fill="(51, 38, 18)" fill-opacity="0.6" stroke="#D97706" stroke-width="1.5"/>
+    
+    <!-- Central Scale Pillar -->
+    <line x1="190" y1="60" x2="190" y2="300" stroke="#94A3B8" stroke-width="5" stroke-linecap="round"/>
+    <polygon points="170,300 210,300 200,320 180,320" fill="#64748B"/>
+
+    <!-- Scale Beam -->
+    <line x1="70" y1="90" x2="310" y2="90" stroke="#F59E0B" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="190" cy="90" r="10" fill="#F59E0B"/>
+
+    <!-- Left Pan: Gold Bars (SGB) -->
+    <line x1="90" y1="90" x2="90" y2="180" stroke="#94A3B8" stroke-width="2"/>
+    <path d="M 40,180 Q 90,210 140,180 Z" fill="#78350F" stroke="#F59E0B" stroke-width="2"/>
+    <rect x="65" y="150" width="50" height="22" rx="4" fill="#F59E0B" stroke="#FEF3C7" stroke-width="1.5"/>
+    <text x="90" y="166" font-family="'Inter', system-ui, sans-serif" font-size="10" font-weight="800" fill="#78350F" text-anchor="middle">SGB 2.5%</text>
+
+    <!-- Right Pan: Equity SIP Growth -->
+    <line x1="290" y1="90" x2="290" y2="180" stroke="#94A3B8" stroke-width="2"/>
+    <path d="M 240,180 Q 290,210 340,180 Z" fill="#064E3B" stroke="#10B981" stroke-width="2"/>
+    <polygon points="275,170 290,145 305,170" fill="#10B981"/>
+    <text x="290" y="165" font-family="'Inter', system-ui, sans-serif" font-size="10" font-weight="800" fill="#BBF7D0" text-anchor="middle">12% SIP</text>
+
+    <!-- Bottom Balanced Ratio Pill -->
+    <g transform="translate(100, 315)">
+      <rect x="0" y="0" width="180" height="34" rx="17" fill="#451A03" stroke="#F59E0B" stroke-width="1.5"/>
+      <text x="90" y="22" font-family="'Inter', system-ui, sans-serif" font-size="12" font-weight="700" fill="#FEF3C7" text-anchor="middle">⚖️ 80/15/5 Balanced Ratio</text>
+    </g>
+  </g>
+
+</svg>
