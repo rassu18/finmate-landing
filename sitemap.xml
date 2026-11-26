@@ -34,12 +34,6 @@ permalink: /sitemap.xml
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>{{ site.url }}/vs/walnut/</loc>
-    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>{{ site.url }}/vs/monefy/</loc>
     <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     <changefreq>monthly</changefreq>

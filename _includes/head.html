@@ -2,20 +2,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 {% capture page_title %}
-  {% if page.url == '/blog/' or page.title contains 'Money Guides' %}
-    SpendSathi Money Guides | Personal Finance Tips
+  {% if page.url == '/' %}
+    SpendSathi: Offline UPI &amp; SMS Expense Tracker for India
+  {% elsif page.url == '/blog/' or page.title contains 'Money Guides' %}
+    Money Guides | SpendSathi
   {% elsif page.layout == 'post' %}
-    {{ page.title }} | SpendSathi
+    {{ page.title | truncate: 47, '' }} | SpendSathi
   {% elsif page.title %}
-    {% if page.title contains 'Offline Expense Tracker' or page.title contains 'Budget Manager' %}
-      {{ page.title }}
-    {% elsif page.title contains 'SpendSathi' %}
-      {{ page.title }} | Offline Expense Tracker &amp; Budget Manager
+    {% if page.title contains 'SpendSathi' %}
+      {{ page.title | truncate: 60, '' }}
     {% else %}
-      {{ page.title }} | SpendSathi — Offline Expense Tracker &amp; Budget Manager
+      {{ page.title | truncate: 47, '' }} | SpendSathi
     {% endif %}
   {% else %}
-    SpendSathi | Offline Expense Tracker &amp; Budget Manager
+    SpendSathi: Offline UPI &amp; SMS Expense Tracker for India
   {% endif %}
 {% endcapture %}
 <title>{{ page_title | strip }}</title>

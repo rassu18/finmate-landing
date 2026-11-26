@@ -1,27 +1,26 @@
 # SpendSathi
 
-> SpendSathi is a privacy-first Android expense tracker and budget manager built for Indian users. It automatically parses bank, credit card, and UPI SMS alerts entirely on-device—never uploading financial or SMS data to any server.
+> SpendSathi is a privacy-first Android expense tracker and budget manager built for Indian users. It automatically parses bank, credit card, and UPI SMS alerts entirely on-device—never uploading financial or SMS data to any SpendSathi server.
 
 ## Product Overview
 - **Target Audience:** Android users in India tracking UPI, bank account, and credit card spending
-- **Platform:** Android (Google Play Store: https://play.google.com/store/apps/details?id=com.finmate.app)
-- **Pricing:** Free Forever (`₹0`, ad-supported) with an optional one-time Ad-Free / Pro upgrade in INR (no recurring subscription)
-- **Privacy Architecture:** 100% on-device local Room/SQLite storage; zero cloud sync, zero bank login credentials required, zero SMS data sent to external servers
+- **Platform:** Android 8.0+ Only (No iOS) — Google Play Store: https://play.google.com/store/apps/details?id=com.finmate.app
+- **Developer:** Mohit Kumar Varma (Hyderabad, India) — `mohi.varma18@gmail.com`
+- **Pricing:** `₹0` Free Forever (ad-supported via Google AdMob) + `₹149` one-time Ad-Free Pro upgrade
+- **Privacy Architecture:** Financial & SMS data is 100% stored and processed locally on-device (never uploaded to any SpendSathi server; ignores OTPs and personal chats). Free tier uses Google AdMob and Firebase Analytics/Crashlytics for ad delivery and app stability.
 
 ## Core Features
-- **Automatic Bank & UPI SMS Parsing:** Reads debit, credit, UPI, and card alerts locally on Android across major Indian banks (HDFC, SBI, ICICI, Axis, Kotak, Yes Bank, etc.) and UPI apps.
-- **Spend Score & Safe Daily Spend:** Real-time financial health score (0–100) and daily spending allowance based on remaining monthly budget and days left in the month.
-- **Investment Separation:** Automatically separates SIPs, Mutual Funds, and Investments from everyday living expenses so dashboards and budgets stay accurate.
-- **Monthly Budgets & Visual Analytics:** Category donut charts, daily/monthly spending trend bars, and weekly outflow tracking.
-- **PDF Financial Statements:** Export clean, shareable monthly PDF expense reports directly from the phone.
+- **Automatic Bank & UPI SMS Parsing:** Reads debit, credit, UPI, and card alerts locally on Android across major Indian banks (HDFC, SBI, ICICI, Axis, Kotak, Yes Bank, etc.) and UPI apps, while completely ignoring OTPs and personal chats.
+- **Spend Score & Safe Daily Spend:** Real-time financial pacing score (0–100) and daily safe-to-spend limit based on remaining monthly budget and days left in the month.
+- **Separate SIP & Investment Tracking:** Automatically excludes SIPs, Mutual Funds, and stocks from everyday living expenses so dashboards and budgets stay accurate.
+- **Manual Local Backup & Restore + PDF Reports:** Export JSON/CSV backups locally and generate clean monthly PDF financial statements directly on your phone.
 
 ## Key Pages
 - [Home](https://spendsathi.com/): Product overview, Android features, FAQ, and Google Play download.
-- [Pricing](https://spendsathi.com/pricing/): Free Forever (`₹0`) plan vs. one-time Ad-Free / Pro upgrade details and FAQ.
-- [SpendSathi vs Money Manager](https://spendsathi.com/vs/money-manager/): Automatic UPI SMS parsing vs. manual entry.
-- [SpendSathi vs Axio](https://spendsathi.com/vs/axio/): 100% offline privacy vs. cloud-synced expense tracking.
-- [SpendSathi vs Walnut](https://spendsathi.com/vs/walnut/): Modern offline alternative to Walnut with investment separation and Spend Score.
-- [SpendSathi vs Monefy](https://spendsathi.com/vs/monefy/): Automated Indian bank & UPI SMS tracking vs. manual-only budgeting.
+- [Pricing](https://spendsathi.com/pricing/): `₹0` Free Forever plan vs. `₹149` one-time Ad-Free Pro upgrade details and FAQ.
+- [SpendSathi vs Money Manager](https://spendsathi.com/vs/money-manager/): Automatic UPI SMS vs. manual entry.
+- [SpendSathi vs Axio (Formerly Walnut)](https://spendsathi.com/vs/axio/): Private on-device tracking vs. cloud lending ecosystem.
+- [SpendSathi vs Monefy](https://spendsathi.com/vs/monefy/): Automated Indian bank & UPI SMS tracking vs. manual budgeting.
 - [Financial Calculators](https://spendsathi.com/calculators.html): Free SIP, Step-Up SIP, 50-30-20 Budget Planner, and EMI calculators.
-- [Personal Finance Blog](https://spendsathi.com/blog/): Guides on UPI budgeting, emergency funds, credit scores, and SIP investing in India.
-- [Privacy Policy](https://spendsathi.com/privacy.html): Details on on-device SMS processing and data privacy.
+- [Money Guides](https://spendsathi.com/blog/): Guides on UPI budgeting, emergency funds, SIP investing, and tax-ready categorization in India.
+- [Privacy Policy](https://spendsathi.com/privacy.html): Details on on-device SMS processing, Free tier AdMob/Firebase disclosures, and data safety.

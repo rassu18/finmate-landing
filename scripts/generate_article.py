@@ -1774,6 +1774,15 @@ def ensure_internal_links(body, existing_posts, current_slug):
     if needed_calc > 0:
         lines.append("- [Free Financial Calculators (SIP, EMI & 50-30-20 Budget Planner)](/calculators.html)")
 
+    if not re.search(r'rbi\.org\.in|npci\.org\.in', body):
+        lines.extend([
+            "",
+            "## Official References",
+            "",
+            "- [Reserve Bank of India (RBI) — Digital Payments & UPI Guidelines](https://www.rbi.org.in/)",
+            "- [NPCI — Unified Payments Interface (UPI) Overview](https://www.npci.org.in/)",
+        ])
+
     return body.rstrip() + "\n" + "\n".join(lines) + "\n"
 
 
@@ -1824,13 +1833,16 @@ def generate_markdown_post(data, output_path, timestamp_str, existing_posts=None
         existing_posts or [],
         data['slug'],
     )
+    word_count = len(body_text.split())
+    if word_count < 800:
+        raise ValueError(f"Generated post '{data['slug']}' is too short ({word_count} words < 800 words).")
 
     front_matter = f"""---
 layout: post
 title: "{data['title']}"
 date: {timestamp_str}
 last_modified_at: {date_part}
-author: "{data['author']}"
+author: "Mohit Kumar Varma"
 image: {image_rel}
 categories: [budgeting, personal-finance]
 tags: [{tags_formatted}]
@@ -1857,14 +1869,21 @@ def get_existing_slugs(posts_dir):
     return slugs
 
 
+ON_BRAND_SLUGS = {
+    "subscription-creep-ott-quick-commerce-leak",
+    "lifestyle-inflation-salary-hike-trap-india",
+    "emergency-car-home-maintenance-sinking-funds-india",
+}
+
+
 def select_editorial_article(existing_slugs, requested_slug=None):
-    """Select requested article or first unposted article from editorial queue."""
+    """Select requested article or first unposted on-brand article from editorial queue."""
     if requested_slug:
         for article in EDITORIAL_QUEUE:
             if article["slug"] == requested_slug:
                 return article
     for article in EDITORIAL_QUEUE:
-        if article["slug"] not in existing_slugs:
+        if article["slug"] in ON_BRAND_SLUGS and article["slug"] not in existing_slugs:
             return article
     return None
 

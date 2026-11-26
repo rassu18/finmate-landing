@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="54" viewBox="0 0 220 54" role="img" aria-labelledby="title description">
+  <title id="title">Listed on ProgrammerNeeds</title>
+  <desc id="description">A badge linking to this product on ProgrammerNeeds</desc>
+  <rect x=".5" y=".5" width="219" height="53" rx="8" fill="#FFFFFF" stroke="#E7E7E3"/>
+  <circle cx="18" cy="27" r="4" fill="#FF5B14"/>
+  <text x="32" y="20" fill="#5C5C57" font-family="'Courier New', Courier, monospace" font-size="9" letter-spacing=".72">LISTED ON</text>
+  <text x="32" y="37" fill="#0B0B0A" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="500" letter-spacing="-.6">programmerneeds</text>
+  <path d="M184.5 15v24" stroke="#E7E7E3"/>
+  <path d="M196 31l8-8m0 0h-7m7 0v7" fill="none" stroke="#0B0B0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -66,7 +66,7 @@ The most common reason debt payoff plans fail is unexpected everyday spending. Y
 
 Many people try to fix this by installing cloud personal finance apps, only to realize that their private financial records, credit limits, and bank alerts are harvested and monetized for more pre-approved loan advertisements.
 
-**SpendSathi solves this through 100% offline local privacy:**
+**SpendSathi solves this through on-device local privacy — your SMS messages and transaction records never leave your phone:**
 * **Instant Bank SMS Alerts:** SpendSathi captures every debit alert locally on your Android device without cloud uploads.
 * **Zero Credit Card Ads:** Because SpendSathi does not sync your data to remote servers, you are never targeted with predatory personal loan or credit card offers.
 * **Real-Time Envelope Visibility:** Know immediately if daily dining or entertainment spends are encroaching on your monthly debt repayment fund.

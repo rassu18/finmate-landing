@@ -215,7 +215,7 @@ permalink: /sip-calculator.html
       "name": "How to track monthly SIP debits with SpendSathi?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "SpendSathi automatically parses incoming bank SMS notifications for SIP and mutual fund debits on your Android device. It logs and categorizes your investments 100% offline without requiring bank credentials or cloud access."
+        "text": "SpendSathi automatically parses incoming bank SMS notifications for SIP and mutual fund debits on your Android device. Your SMS messages and transaction records never leave your phone, without requiring bank credentials or cloud access."
       }
     }
   ]

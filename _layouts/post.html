@@ -115,11 +115,11 @@ layout: default
     <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-500 pb-6 border-b border-slate-200">
       <span class="flex items-center space-x-1.5">
         <svg class="w-4 h-4 text-slate-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
-        <span class="font-medium text-slate-700">{{ page.author | default: "SpendSathi Team" }}</span>
+        <span class="font-medium text-slate-700">By {{ page.author | default: "Mohit Kumar Varma" }}</span>
       </span>
       <span class="flex items-center space-x-1.5">
         <svg class="w-4 h-4 text-slate-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
-        <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+        <span>Last reviewed: {{ page.last_modified_at | default: page.date | date: "%Y-%m-%d" }}</span>
       </span>
       <span class="flex items-center space-x-1.5">
         <svg class="w-4 h-4 text-slate-400" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L11 13V7h1.5v5.25l4.5 2.67-1.01 1.77z"/></svg>
