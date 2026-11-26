@@ -96,8 +96,17 @@ layout: default
 
 <article class="w-full pb-16">
 
-  <!-- Article Header -->
+  <!-- Guide Header -->
   <header class="mb-8">
+    <!-- Breadcrumbs -->
+    <nav aria-label="Breadcrumb" class="mb-4 text-xs font-medium text-slate-500 flex flex-wrap items-center gap-1.5">
+      <a href="/" class="hover:text-green-700 transition">Home</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="/blog/" class="hover:text-green-700 transition">Guides</a>
+      <span aria-hidden="true">&gt;</span>
+      <span class="text-slate-700 truncate max-w-xs sm:max-w-md">{{ page.title }}</span>
+    </nav>
+
     <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight tracking-tight mb-5">
       {{ page.title }}
     </h1>
@@ -145,11 +154,11 @@ layout: default
     {{ content }}
   </div>
 
-  <!-- Back to Blog -->
+  <!-- Back to Guides -->
   <div class="mt-14 pt-8 border-t border-slate-200">
     <a href="/blog/" class="inline-flex items-center space-x-2 text-slate-600 hover:text-slate-900 transition font-medium text-sm">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-      <span>Back to Blog</span>
+      <span>Back to Guides</span>
     </a>
   </div>
 

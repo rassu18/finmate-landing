@@ -2,8 +2,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 {% capture page_title %}
-  {% if page.url == '/blog/' or page.title contains 'SpendSathi Blog' %}
-    SpendSathi Blog | Personal Finance Tips
+  {% if page.url == '/blog/' or page.title contains 'Money Guides' %}
+    SpendSathi Money Guides | Personal Finance Tips
   {% elsif page.layout == 'post' %}
     {{ page.title }} | SpendSathi
   {% elsif page.title %}
@@ -24,7 +24,7 @@
 
 <!-- Canonical & RSS Feed -->
 <link rel="canonical" href="{{ page.url | absolute_url }}">
-<link rel="alternate" type="application/rss+xml" title="SpendSathi Blog RSS Feed" href="https://spendsathi.com/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="SpendSathi Money Guides" href="https://spendsathi.com/feed.xml">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">

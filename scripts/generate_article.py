@@ -1767,7 +1767,7 @@ def ensure_internal_links(body, existing_posts, current_slug):
     if needed_blog == 0 and needed_calc == 0:
         return body
 
-    lines = ["", "## Related Guides & Free Tools", ""]
+    lines = ["", "## Related Guides", ""]
     for post in related[:needed_blog if needed_blog > 0 else 2]:
         lines.append(f"- [{post['title']}]({post['url_path']})")
 
@@ -1799,7 +1799,7 @@ def generate_rss_feed(posts_dir, output_path, limit=20):
         "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
         "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n"
         "  <channel>\n"
-        "    <title>SpendSathi Blog | Personal Finance Tips</title>\n"
+        "    <title>SpendSathi Money Guides</title>\n"
         "    <link>https://spendsathi.com/blog/</link>\n"
         "    <description>Practical personal finance tips, UPI budgeting strategies, and money-saving insights from SpendSathi.</description>\n"
         "    <language>en-in</language>\n"
