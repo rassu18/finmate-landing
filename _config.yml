@@ -20,6 +20,7 @@ include:
   - app-ads.txt
   - sitemap.xml
   - sitemap_index.xml
+  - llms.txt
 
 # Exclude non-Jekyll files
 exclude:

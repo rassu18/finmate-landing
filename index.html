@@ -32,6 +32,38 @@ description: A secure offline expense tracker and budget manager with automated 
             background-size: 24px 24px;
         }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is SpendSathi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SpendSathi is an Android expense tracker app built for Indian users. It automatically parses bank, credit card, and UPI SMS alerts 100% locally on your device—with Spend Score, monthly budgets, investment separation, and PDF financial statements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is SpendSathi free on Android?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SpendSathi is ₹0 / Free Forever on Google Play (ad-supported) with an optional one-time Ad-Free Pro upgrade in INR."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SpendSathi send my SMS or bank data to any server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. SpendSathi processes all bank, credit card, and UPI SMS alerts 100% on-device. Your financial data never leaves your Android phone."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
     <!-- Skip to main content -->
@@ -59,7 +91,7 @@ description: A secure offline expense tracker and budget manager with automated 
                     </h1>
                     
                     <p class="lead-paragraph text-lg text-slate-600 max-w-xl mx-auto md:mx-0 leading-relaxed">
-                        SpendSathi automatically parses UPI and bank SMS alerts entirely on your device. Gain instant insights into your daily spending without syncing your private financial data to the cloud.
+                        The Android expense tracker app built for Indian users. SpendSathi automatically parses bank, credit card, and UPI SMS alerts 100% locally on your device—so your financial data never leaves your phone.
                     </p>
 
                     <div class="pt-2 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
@@ -124,6 +156,30 @@ description: A secure offline expense tracker and budget manager with automated 
             </div>
         </section>
 
+        <!-- Homepage FAQ Section -->
+        <section class="bg-white border-t border-slate-200 py-16">
+            <div class="max-w-4xl mx-auto px-6 space-y-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-slate-900">Frequently Asked Questions</h2>
+                    <p class="text-slate-600 mt-2 text-base">Built for Indian Android users who value automated tracking and privacy.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                        <h3 class="font-bold text-slate-900 mb-2">What is SpendSathi?</h3>
+                        <p class="text-sm text-slate-700 leading-relaxed">SpendSathi is an Android expense tracker app for Indian users that automatically parses bank, credit card, and UPI SMS alerts 100% locally on-device.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                        <h3 class="font-bold text-slate-900 mb-2">Is SpendSathi free?</h3>
+                        <p class="text-sm text-slate-700 leading-relaxed">Yes—₹0 / Free Forever on Google Play (ad-supported), with an optional one-time Ad-Free Pro upgrade in INR. <a href="/pricing/" class="text-green-700 font-semibold hover:underline">See full pricing</a>.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                        <h3 class="font-bold text-slate-900 mb-2">Does data leave my phone?</h3>
+                        <p class="text-sm text-slate-700 leading-relaxed">Never. All SMS parsing and storage happen 100% on your Android device—no cloud uploads, no bank logins, and no loan spam.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Feedback & Contact Form Section -->
         <section id="contact" class="bg-slate-100 border-t border-slate-200 py-20">
             <div class="max-w-3xl mx-auto px-6">
@@ -167,12 +223,24 @@ description: A secure offline expense tracker and budget manager with automated 
                     <p class="text-slate-600 text-sm">&copy; 2026 SpendSathi. All rights reserved.</p>
                     <p class="text-xs text-slate-400 font-normal mt-0.5">Secure Android Expense Manager</p>
                 </div>
-                <div class="flex items-center justify-center md:justify-start space-x-3 text-xs">
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-3 gap-y-1 text-xs">
+                    <a href="/pricing/" class="text-slate-500 hover:text-amber-600 hover:underline underline-offset-2 transition font-medium">Pricing</a>
+                    <span class="text-slate-300">•</span>
                     <a href="/calculators.html" class="text-slate-500 hover:text-amber-600 hover:underline underline-offset-2 transition font-medium">Calculators</a>
                     <span class="text-slate-300">•</span>
                     <a href="/privacy.html" class="text-slate-500 hover:text-amber-600 hover:underline underline-offset-2 transition font-medium">Privacy Policy</a>
                     <span class="text-slate-300">•</span>
                     <a href="/terms.html" class="text-slate-500 hover:text-amber-600 hover:underline underline-offset-2 transition font-medium">Terms &amp; Disclaimer</a>
+                </div>
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-3 gap-y-1 text-xs">
+                    <span class="text-slate-400 font-medium">Compare:</span>
+                    <a href="/vs/money-manager/" class="text-slate-500 hover:text-amber-600 hover:underline underline-offset-2 transition">vs Money Manager</a>
+                    <span class="text-slate-300">•</span>
+                    <a href="/vs/axio/" class="text-slate-500 hover:text-amber-600 hover:underline underline-offset-2 transition">vs Axio</a>
+                    <span class="text-slate-300">•</span>
+                    <a href="/vs/walnut/" class="text-slate-500 hover:text-amber-600 hover:underline underline-offset-2 transition">vs Walnut</a>
+                    <span class="text-slate-300">•</span>
+                    <a href="/vs/monefy/" class="text-slate-500 hover:text-amber-600 hover:underline underline-offset-2 transition">vs Monefy</a>
                 </div>
             </div>
             
