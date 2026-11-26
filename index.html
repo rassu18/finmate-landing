@@ -156,6 +156,46 @@ description: A secure offline expense tracker and budget manager with automated 
             </div>
         </section>
 
+        <!-- Latest Guides Strip (Auto-populated from _posts) -->
+        {% if site.posts.size > 0 %}
+        <section class="max-w-7xl mx-auto w-full px-6 pb-20">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Latest Guides</h2>
+                    <p class="text-slate-600 mt-2 text-base">Fresh Indian personal finance, UPI budgeting, and tax-saving playbooks.</p>
+                </div>
+                <a href="/blog/" class="inline-flex items-center space-x-1.5 text-sm font-semibold text-green-700 hover:text-green-800 transition">
+                    <span>View all guides</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {% for post in site.posts limit:3 %}
+                <article class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-slate-300 hover:shadow-md transition overflow-hidden flex flex-col">
+                    {% if post.image %}
+                    <a href="{{ post.url | relative_url }}" aria-label="{{ post.title }}">
+                        <div class="w-full h-[170px] overflow-hidden bg-slate-100">
+                            <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" width="400" height="170" loading="lazy" class="w-full h-full object-cover">
+                        </div>
+                    </a>
+                    {% endif %}
+                    <div class="p-6 flex flex-col flex-1">
+                        <p class="text-xs text-slate-400 font-medium mb-2">{{ post.date | date: "%B %-d, %Y" }}</p>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">
+                            <a href="{{ post.url | relative_url }}" class="hover:text-green-700 transition">{{ post.title }}</a>
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-4 flex-1">{{ post.excerpt | strip_html | truncate: 115 }}</p>
+                        <a href="{{ post.url | relative_url }}" class="inline-flex items-center space-x-1 text-sm font-semibold text-slate-900 hover:text-green-700 transition mt-auto">
+                            <span>Read guide</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
         <!-- Homepage FAQ Section -->
         <section class="bg-white border-t border-slate-200 py-16">
             <div class="max-w-4xl mx-auto px-6 space-y-8">

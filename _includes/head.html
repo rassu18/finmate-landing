@@ -22,8 +22,9 @@
 
 <meta name="description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | truncate: 160 }}">
 
-<!-- Canonical URL -->
+<!-- Canonical & RSS Feed -->
 <link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="alternate" type="application/rss+xml" title="SpendSathi Blog RSS Feed" href="https://spendsathi.com/feed.xml">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">

@@ -25,6 +25,8 @@ import math
 import shutil
 import argparse
 from datetime import datetime
+from email.utils import format_datetime
+from xml.sax.saxutils import escape as xml_escape
 import zoneinfo
 from PIL import Image, ImageDraw, ImageFont
 
@@ -1702,15 +1704,132 @@ def generate_webp_banner(data, output_path):
         return False
 
 
-def generate_markdown_post(data, output_path, timestamp_str):
+def parse_existing_posts(posts_dir):
+    """Parse frontmatter metadata from all _posts/*.md files, sorted newest-first."""
+    posts = []
+    for p in glob.glob(os.path.join(posts_dir, "*.md")):
+        name = os.path.basename(p)
+        m = re.match(r'^(\d{4})-(\d{2})-(\d{2})-(.*)\.md$', name)
+        if not m:
+            continue
+        y, mo, d, slug = m.groups()
+        try:
+            with open(p, "r", encoding="utf-8") as f:
+                content = f.read()
+        except Exception:
+            continue
+
+        fm_match = re.match(r'^---\s*\n(.*?)\n---', content, re.S)
+        fm = fm_match.group(1) if fm_match else ""
+
+        def _extract(key, default=""):
+            km = re.search(rf'^{key}:\s*["\']?(.*?)["\']?\s*$', fm, re.M)
+            return km.group(1).strip() if km else default
+
+        if _extract("published", "true").lower() == "false":
+            continue
+
+        title = _extract("title", slug.replace("-", " ").title())
+        excerpt = _extract("excerpt", title)
+        date_raw = _extract("date", f"{y}-{mo}-{d} 09:00:00 +0530")
+        try:
+            dt = datetime.strptime(date_raw[:19], "%Y-%m-%d %H:%M:%S").replace(tzinfo=IST)
+        except Exception:
+            dt = datetime(int(y), int(mo), int(d), 9, 0, 0, tzinfo=IST)
+
+        url_path = f"/blog/{y}/{mo}/{d}/{slug}/"
+        posts.append({
+            "slug": slug,
+            "title": title,
+            "excerpt": excerpt,
+            "date": dt,
+            "iso_date": f"{y}-{mo}-{d}",
+            "url_path": url_path,
+            "full_url": f"https://spendsathi.com{url_path}",
+        })
+
+    posts.sort(key=lambda item: item["date"], reverse=True)
+    return posts
+
+
+def ensure_internal_links(body, existing_posts, current_slug):
+    """Guarantee >= 2 internal blog post links and >= 1 calculator link in every generated post."""
+    blog_links = re.findall(r'\]\((?:https://spendsathi\.com)?/blog/[^)]+\)', body)
+    calc_links = re.findall(
+        r'\]\((?:https://spendsathi\.com)?/(?:calculators|sip-calculator|step-up-sip-calculator|budget-planner-calculator|emi-calculator)\.html\)',
+        body,
+    )
+
+    related = [p for p in existing_posts if p["slug"] != current_slug][:2]
+    needed_blog = max(0, 2 - len(blog_links))
+    needed_calc = max(0, 1 - len(calc_links))
+
+    if needed_blog == 0 and needed_calc == 0:
+        return body
+
+    lines = ["", "## Related Guides & Free Tools", ""]
+    for post in related[:needed_blog if needed_blog > 0 else 2]:
+        lines.append(f"- [{post['title']}]({post['url_path']})")
+
+    if needed_calc > 0:
+        lines.append("- [Free Financial Calculators (SIP, EMI & 50-30-20 Budget Planner)](/calculators.html)")
+
+    return body.rstrip() + "\n" + "\n".join(lines) + "\n"
+
+
+def generate_rss_feed(posts_dir, output_path, limit=20):
+    """Generate valid RSS 2.0 XML at feed.xml containing the latest posts."""
+    posts = parse_existing_posts(posts_dir)[:limit]
+    now_rfc822 = format_datetime(datetime.now(IST))
+
+    items_xml = []
+    for p in posts:
+        pub_date = format_datetime(p["date"])
+        items_xml.append(
+            "    <item>\n"
+            f"      <title>{xml_escape(p['title'])}</title>\n"
+            f"      <link>{xml_escape(p['full_url'])}</link>\n"
+            f"      <guid isPermaLink=\"true\">{xml_escape(p['full_url'])}</guid>\n"
+            f"      <pubDate>{xml_escape(pub_date)}</pubDate>\n"
+            f"      <description>{xml_escape(p['excerpt'])}</description>\n"
+            "    </item>"
+        )
+
+    rss_xml = (
+        "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+        "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n"
+        "  <channel>\n"
+        "    <title>SpendSathi Blog | Personal Finance Tips</title>\n"
+        "    <link>https://spendsathi.com/blog/</link>\n"
+        "    <description>Practical personal finance tips, UPI budgeting strategies, and money-saving insights from SpendSathi.</description>\n"
+        "    <language>en-in</language>\n"
+        f"    <lastBuildDate>{xml_escape(now_rfc822)}</lastBuildDate>\n"
+        "    <atom:link href=\"https://spendsathi.com/feed.xml\" rel=\"self\" type=\"application/rss+xml\" />\n"
+        + "\n".join(items_xml)
+        + "\n  </channel>\n</rss>\n"
+    )
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(rss_xml)
+    print(f"Generated RSS 2.0 Feed ({len(posts)} items): {output_path}")
+
+
+def generate_markdown_post(data, output_path, timestamp_str, existing_posts=None):
     """Generate Markdown post with fully qualified IST timestamp and published: true."""
     tags_formatted = ", ".join(data.get("tags", ["budgeting", "personal finance", "SpendSathi"]))
     image_rel = f"/assets/images/blog/{data['slug']}.webp"
+    date_part = timestamp_str.split(" ")[0]
+    body_text = ensure_internal_links(
+        data['body'].strip(),
+        existing_posts or [],
+        data['slug'],
+    )
 
     front_matter = f"""---
 layout: post
 title: "{data['title']}"
 date: {timestamp_str}
+last_modified_at: {date_part}
 author: "{data['author']}"
 image: {image_rel}
 categories: [budgeting, personal-finance]
@@ -1719,7 +1838,7 @@ published: true
 excerpt: "{data['excerpt']}"
 ---
 
-{data['body'].strip()}
+{body_text.strip()}
 """
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
@@ -1816,12 +1935,14 @@ def main():
     parser.add_argument("--slug", help="Generate a specific article slug from the editorial queue")
     parser.add_argument("--force", action="store_true", help="Force generate even if already posted")
     parser.add_argument("--regenerate-banners", action="store_true", help="Regenerate all banners for existing posts")
+    parser.add_argument("--update-feed", action="store_true", help="Regenerate RSS 2.0 feed.xml from _posts/")
     args = parser.parse_args()
 
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     posts_dir = os.path.join(repo_root, "_posts")
     svg_dir = os.path.join(repo_root, "assets", "blog-images")
     webp_dir = os.path.join(repo_root, "assets", "images", "blog")
+    feed_path = os.path.join(repo_root, "feed.xml")
 
     os.makedirs(posts_dir, exist_ok=True)
     os.makedirs(svg_dir, exist_ok=True)
@@ -1829,6 +1950,10 @@ def main():
 
     if getattr(args, "regenerate_banners", False):
         regenerate_all_banners(repo_root)
+        return
+
+    if getattr(args, "update_feed", False):
+        generate_rss_feed(posts_dir, feed_path, limit=20)
         return
 
     if args.date:
@@ -1862,10 +1987,13 @@ def main():
     webp_path1 = os.path.join(webp_dir, webp_filename)
     webp_path2 = os.path.join(svg_dir, webp_filename)
 
+    existing_posts = parse_existing_posts(posts_dir)
+
     generate_svg_banner(data, svg_path)
     generate_webp_banner(data, webp_path1)
     generate_webp_banner(data, webp_path2)
-    generate_markdown_post(data, md_path, timestamp_str)
+    generate_markdown_post(data, md_path, timestamp_str, existing_posts=existing_posts)
+    generate_rss_feed(posts_dir, feed_path, limit=20)
 
     print("\nGeneration summary:")
     print(f"  Post file:   {md_filename}")

@@ -34,13 +34,83 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
       - name: Commit and push new post
+        id: publish
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add _posts/ assets/
+
+          NEW_POSTS=$(git status --porcelain _posts/ | awk '{print $NF}')
+          git add _posts/ assets/ feed.xml
           if ! git diff-index --quiet HEAD; then
-            git commit -m "chore(blog): auto-generate bi-weekly post"
+            git commit -m "chore(blog): auto-generate bi-weekly post & update RSS feed"
             git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
+            {
+              echo "new_posts<<EOF"
+              echo "$NEW_POSTS"
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
           else
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
             echo "No new files generated to commit."
           fi
+
+      - name: Notify IndexNow after GitHub Pages deploy
+        if: steps.publish.outputs.pushed == 'true'
+        run: |
+          python - << 'PYEOF'
+          import json
+          import os
+          import re
+          import time
+          import urllib.request
+
+          INDEXNOW_KEY = "8f4c2e9a1b7d403e9c5a2f6b8d1e4a7c"
+          HOST = "spendsathi.com"
+          KEY_LOCATION = f"https://{HOST}/{INDEXNOW_KEY}.txt"
+
+          raw_posts = """${{ steps.publish.outputs.new_posts }}""".strip().splitlines()
+          urls = [f"https://{HOST}/", f"https://{HOST}/blog/", f"https://{HOST}/feed.xml", f"https://{HOST}/sitemap.xml"]
+          primary_post_url = None
+
+          for path in raw_posts:
+              name = os.path.basename(path.strip())
+              m = re.match(r'^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$', name)
+              if m:
+                  y, mo, d, slug = m.groups()
+                  post_url = f"https://{HOST}/blog/{y}/{mo}/{d}/{slug}/"
+                  urls.insert(0, post_url)
+                  if primary_post_url is None:
+                      primary_post_url = post_url
+
+          # Wait briefly for GitHub Pages to publish the new post URL (max ~90s)
+          if primary_post_url:
+              for attempt in range(9):
+                  try:
+                      req = urllib.request.Request(primary_post_url, method="HEAD")
+                      with urllib.request.urlopen(req, timeout=10) as resp:
+                          if resp.status == 200:
+                              print(f"Verified live URL: {primary_post_url}")
+                              break
+                  except Exception:
+                      pass
+                  time.sleep(10)
+
+          payload = {
+              "host": HOST,
+              "key": INDEXNOW_KEY,
+              "keyLocation": KEY_LOCATION,
+              "urlList": urls,
+          }
+          try:
+              req = urllib.request.Request(
+                  "https://api.indexnow.org/indexnow",
+                  data=json.dumps(payload).encode("utf-8"),
+                  headers={"Content-Type": "application/json; charset=utf-8"},
+                  method="POST",
+              )
+              with urllib.request.urlopen(req, timeout=15) as resp:
+                  print(f"IndexNow submitted {len(urls)} URLs -> HTTP {resp.status}")
+          except Exception as exc:
+              print(f"IndexNow notification warning (non-fatal): {exc}")
+          PYEOF
